@@ -20,6 +20,7 @@ const Color successBackgroundColor = Color(0xffe6ffe4);
 const Color whiteBackground = Color(0xffffffff);
 
 const Color darkTextColor = Color(0xff24252c);
+const Color secondaryTextColor = Color(0xff6e6a7c);
 const Color lightTextColor = Color(0x9924252c);
 
 const Color lightGrayBorder = Color (0xffbababa);
