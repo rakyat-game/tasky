@@ -16,10 +16,8 @@ class PhoneInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(8)),
       child: InternationalPhoneNumberInput(
         keyboardType: TextInputType.number,
-        inputBorder: const OutlineInputBorder(),
-        onInputChanged: (value) {
-
-        },
+        inputBorder: WidgetStyles.borderStyle,
+        onInputChanged: (PhoneNumber value) {},
         formatInput: false,
         selectorConfig: const SelectorConfig(
             selectorType: PhoneInputSelectorType.DIALOG, trailingSpace: false),

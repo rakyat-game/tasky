@@ -12,7 +12,6 @@ class PasswordInput extends StatefulWidget {
     required this.controller,
     required this.inputType,
   });
-
   @override
   State<PasswordInput> createState() => _PasswordInputState();
 }
@@ -36,21 +35,10 @@ class _PasswordInputState extends State<PasswordInput> {
             icon: Icon(showPassword
                 ? Icons.visibility_off_outlined
                 : Icons.visibility_outlined)),
-        hintText: 'Password', // Added labelText
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: APPColors.secondaryTextColor,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(
-            color: APPColors.secondaryTextColor,
-            width: 1,
-          ),
-        ),
+        hintText: 'Password...', // Added
+        hintStyle: FontStyles.hintTextStyle,// labelText
+        border: WidgetStyles.borderStyle,
+        focusedBorder: WidgetStyles.borderStyle,
       ),
       keyboardType: widget.inputType,
       maxLines: 1,
