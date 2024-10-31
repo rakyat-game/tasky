@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-import '../../../utils/fonts.dart';
-import '../../../utils/utils.dart';
+import 'package:tasky/utils/utils.dart';
 
 class PhoneInput extends StatelessWidget {
   const PhoneInput({super.key});

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/app/presentation/pages/profile_page.dart';
 import 'package:tasky/auth/presentation/pages/login_page.dart';
 
 import 'auth/presentation/pages/register_page.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: RegisterPage(),
+          child: ProfilePage(),
         ),
       ),
     );

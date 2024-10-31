@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/auth/presentation/widgets/auth_widgets.dart';
-import 'package:tasky/auth/presentation/widgets/sign_button.dart';
 
-import '../../../utils/utils.dart';
+import 'package:tasky/utils/utils.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

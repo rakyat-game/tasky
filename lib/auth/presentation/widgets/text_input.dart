@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/utils.dart';
+import 'package:tasky/utils/utils.dart';
 
 class TextInput extends StatefulWidget {
   final TextEditingController controller;

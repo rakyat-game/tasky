@@ -16,5 +16,5 @@ class Strings {
   static const boardingDesc = "This productive tool is designed to help\n"
                                                 "you better manage your task\n"
                                                   "project-wise conveniently!";
-
+  static const profile = "Profile";
 }

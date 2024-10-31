@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/utils.dart';
-import '../widgets/auth_widgets.dart';
+import 'package:tasky/utils/utils.dart';
+import 'package:tasky/auth/presentation/widgets/auth_widgets.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

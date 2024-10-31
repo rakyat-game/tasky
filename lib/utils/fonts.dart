@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tasky/utils/colors.dart';
+import 'package:tasky/utils/utils.dart';
 
 class FontStyles {
   static final mainTextStyle = GoogleFonts.dmSans(
@@ -18,6 +18,10 @@ class FontStyles {
       fontSize: 20,
       color: APPColors.whiteBackground,
       fontWeight: FontWeight.w700);
+
+  static final textTitleStyle = GoogleFonts.dmSans(
+    fontSize: 24, color: APPColors.darkTextColor, fontWeight: FontWeight.w700
+  );
 
   static final hintTextStyle = GoogleFonts.dmSans(
     fontSize: 16,
