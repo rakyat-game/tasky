@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'auth/presentation/pages/login_page.dart';
+
+import 'auth/presentation/widgets/password_input.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
+    const inputType = TextInputType.emailAddress;
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -18,7 +21,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: LoginPage(),
+        body: Center(
+          child: PasswordInput(
+            controller: controller,
+            inputType: inputType,
+          ),
+        ),
       ),
     );
   }

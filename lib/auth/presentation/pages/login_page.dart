@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/auth/presentation/widgets/auth_widgets.dart';
-import 'package:tasky/auth/presentation/widgets/password_input.dart';
+import 'package:tasky/auth/presentation/widgets/sign_button.dart';
 
 import '../../../utils/utils.dart';
 
@@ -28,16 +28,36 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: PhoneInput(),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: PasswordInput(
-                  labelText: "Password",
                   controller: passwordController,
                   inputType: TextInputType.emailAddress,
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SizedBox(
+                    width: double.infinity,
+                    child: SignButton(text: "Sign in", onTap: () {})),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Didn’t have any account?",
+                    style: FontStyles.secondaryTextStyle,
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Sign up here",
+                        style: FontStyles.textButtonStyle,
+                      ))
+                ],
               )
             ],
           ),

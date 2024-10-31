@@ -40,7 +40,7 @@ class OnboardPage extends StatelessWidget {
                 side: const BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              color: inprogressTextColor,
+              color: APPColors.inprogressTextColor,
               onPressed: () {},
               child: Padding(
                 padding: const EdgeInsets.all(12.0),

@@ -1,47 +1,59 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/utils.dart';
+
 class PasswordInput extends StatefulWidget {
-  final String labelText;
   final TextInputType inputType;
   final TextEditingController controller;
 
-  PasswordInput(
-      {super.key,
-        required this.labelText,
-        required this.controller,
-        required this.inputType,});
+  const PasswordInput({
+    super.key,
 
-
+    required this.controller,
+    required this.inputType,
+  });
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
 }
 
 class _PasswordInputState extends State<PasswordInput> {
+  bool showPassword = false;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.controller,
-      obscureText: true,
-      cursorColor: Colors.blue, // Replace with your desired color
+      obscureText: !showPassword,
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
-        floatingLabelStyle: const TextStyle(color: Colors.blue), // Replace with your desired color
-        labelText: widget.labelText, // Added labelText
+        suffixIcon: IconButton(
+            onPressed: () {
+              setState(() {
+                showPassword = !showPassword;
+              });
+            },
+            icon: Icon(showPassword
+                ? Icons.visibility_off_outlined
+                : Icons.visibility_outlined)),
+        hintText: 'Password', // Added labelText
         border: OutlineInputBorder(
           borderSide: const BorderSide(
-            width: 1.0,
+            color: APPColors.secondaryTextColor,
+            width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
-            width: 1.5,
+            color: APPColors.secondaryTextColor,
+            width: 1,
           ),
         ),
       ),
       keyboardType: widget.inputType,
+      maxLines: 1,
     );
   }
 }
