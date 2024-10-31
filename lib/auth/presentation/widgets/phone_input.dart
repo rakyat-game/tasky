@@ -11,7 +11,7 @@ class PhoneInput extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
-          border: Border.all(color: APPColors.secondaryTextColor),
+          border: Border.all(color: AppColors.secondaryTextColor),
           borderRadius: BorderRadius.circular(8)),
       child: InternationalPhoneNumberInput(
         keyboardType: TextInputType.number,

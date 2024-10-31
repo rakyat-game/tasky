@@ -38,7 +38,7 @@ class RegisterPage extends StatelessWidget {
                     Padding(
                         padding: Constants.inputPadding,
                         child: TextInput(
-                            hint: Strings.name,
+                            hint: Strings.registerName,
                             controller: nameController,
                             inputType: TextInputType.name)),
                     // phone input widget
@@ -50,8 +50,8 @@ class RegisterPage extends StatelessWidget {
                     Padding(
                         padding: Constants.inputPadding,
                         child: TextInput(
-                            hint: Strings.yearsOfExp,
-                            controller: nameController,
+                            hint: Strings.registerYearsOfExp,
+                            controller: yearsOfExpController,
                             inputType: TextInputType.name)),
                     // Level of exp widget
                     const Padding(
@@ -62,8 +62,8 @@ class RegisterPage extends StatelessWidget {
                     Padding(
                         padding: Constants.inputPadding,
                         child: TextInput(
-                            hint: Strings.address,
-                            controller: nameController,
+                            hint: Strings.registerAddress,
+                            controller: addressController,
                             inputType: TextInputType.name)),
                     // password input widget
                     Padding(

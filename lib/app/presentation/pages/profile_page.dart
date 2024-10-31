@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
+import 'package:tasky/app/presentation/widgets/profile_item_card.dart';
 import 'package:tasky/utils/utils.dart';
+
+import '../widgets/phone_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -9,11 +11,18 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(IconlyBold.arrow_left,
-                color: APPColors.darkTextColor)),
-        title: Text(Strings.profile,style: FontStyles.textTitleStyle,),
+        leading: IconButton(onPressed: () {}, icon: AppIcons.backArrow),
+        title: Text(
+          Strings.profile,
+          style: FontStyles.textTitleStyle,
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.separated(
+          itemBuilder: (_, item) => PhoneCard(phoneNumber: "+201280951339",),
+          separatorBuilder: (BuildContext context, int index) => SizedBox(height: 16,), itemCount: 5,
+        ),
       ),
     );
   }

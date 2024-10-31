@@ -20,13 +20,12 @@ class SignButton extends StatelessWidget {
             RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         )),
-        backgroundColor: WidgetStateProperty.all(APPColors.inprogressTextColor),
+        backgroundColor: WidgetStateProperty.all(AppColors.inprogressTextColor),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: Text(text, style: FontStyles.buttonTextStyle),
       ),
     );
-    ;
   }
 }

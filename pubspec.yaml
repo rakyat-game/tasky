@@ -52,6 +52,7 @@ dependencies:
   flutter_launcher_icons: ^0.14.1
   intl_phone_number_input: ^0.7.4
   libphonenumber_plugin: ^0.3.3
+  flutter_svg_icons: ^0.0.1+4
 
 
 dev_dependencies:
@@ -63,7 +64,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

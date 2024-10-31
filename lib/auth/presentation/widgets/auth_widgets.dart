@@ -1,4 +1,4 @@
-library auth_widgets;
+library;
 
 export 'dropdown_button.dart';
 export 'password_input.dart';

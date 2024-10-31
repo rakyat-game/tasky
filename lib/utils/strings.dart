@@ -1,10 +1,14 @@
 class Strings {
-  static const name = "Name...";
-  static const password = "Password...";
+  static const registerName = "Name...";
+  static const registerPassword = "Password...";
+  static const registerYearsOfExp = "Years of experience...";
+  static const registerAddress = "Address...";
+  static const name= "NAME";
+  static const phone = "PHONE";
+  static const level = "LEVEL";
+  static const location = "LOCATION";
   static const phoneNumber = "123 456-7890";
-  static const yearsOfExp = "Years of experience...";
   static const expLevel = "Choose experience Level";
-  static const address = "Address...";
   static const signup = "Sign up";
   static const signin = "Sign in";
   static const register = "Register";
