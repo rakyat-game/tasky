@@ -11,17 +11,13 @@ class OnboardPage extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Image.asset("assets/images/art.png"),
+          Image.asset(Images.art),
           const SizedBox(
             height: 32,
           ),
           Text(
             "Task Management &\nTo-Do List",
-            style: GoogleFonts.dmSans(
-                fontSize: 32,
-                fontWeight: FontWeight.w700,
-                color: darkTextColor
-            ),
+            style: FontStyles.mainTextStyle,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -31,7 +27,7 @@ class OnboardPage extends StatelessWidget {
             "This productive tool is designed to help\n"
 "you better manage your task\n"
 "project-wise conveniently!",
-            style: secondaryTextStyle,
+            style: FontStyles.secondaryTextStyle,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -53,7 +49,7 @@ class OnboardPage extends StatelessWidget {
                   children: [
                     Text(
                       "Let's Start",
-                      style: buttonTextStyle,
+                      style: FontStyles.buttonTextStyle,
                     ),
                     const SizedBox(width: 8,),
                     const Icon(IconlyBold.arrow_right, color: Colors.white,)

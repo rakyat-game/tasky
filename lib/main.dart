@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasky/onboarding/onboard_page.dart';
+import 'auth/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: OnboardPage(),
+      home: Scaffold(
+        body: LoginPage(),
       ),
     );
   }

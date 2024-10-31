@@ -49,6 +49,10 @@ dependencies:
   hexcolor: ^3.0.1
   flutter_svg: ^2.0.10+1
   fluttertoast: ^8.2.8
+  flutter_launcher_icons: ^0.14.1
+  intl_phone_number_input: ^0.7.4
+  libphonenumber_plugin: ^0.3.3
+
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +67,13 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_launcher_icons:
+  android: true
+  ios: true
+  windows:
+    generate: true
+    icon_size: 128
+  image_path: "assets/images/icon.png"
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -79,6 +89,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
