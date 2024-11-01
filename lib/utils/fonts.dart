@@ -51,12 +51,12 @@ class FontStyles {
   );
 
   static final cardLabelStyle = GoogleFonts.dmSans(
-      fontSize: 12,
+      fontSize: 10,
       color: AppColors.disableLabelColor,
       fontWeight: FontWeight.w500);
 
   static final cardTextStyle = GoogleFonts.dmSans(
       fontSize: 16,
-      color: AppColors.disableLabelColor,
+      color: AppColors.darkTextColor,
       fontWeight: FontWeight.w700);
 }

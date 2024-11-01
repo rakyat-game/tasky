@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tasky/app/presentation/widgets/date_card.dart';
 import 'package:tasky/utils/utils.dart';
 
+import 'package:tasky/app/presentation/widgets/display_date.dart';
+
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});
 
@@ -66,7 +68,7 @@ place and can deliver. Customers will get a one-stop
 solution for their daily shopping.""",
                   style: FontStyles.secondaryTextStyle,
                 ),
-                DateCard()
+                DisplayDate()
               ],
             ),
           ),

@@ -16,7 +16,6 @@ class _DateCardState extends State<DateCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-
       elevation: 0,
       color: AppColors.inprogressBackgroundColor,
       child: InkWell(
