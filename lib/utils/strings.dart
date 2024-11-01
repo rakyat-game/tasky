@@ -21,4 +21,5 @@ class Strings {
                                                 "you better manage your task\n"
                                                   "project-wise conveniently!";
   static const profile = "Profile";
+  static const taskDetails = "Task Details";
 }

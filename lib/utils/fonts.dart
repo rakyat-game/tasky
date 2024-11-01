@@ -39,4 +39,24 @@ class FontStyles {
     color: AppColors.disableContentColor,
     fontWeight: FontWeight.w700
   );
+  static final errorMenuTextStyle = GoogleFonts.dmSans(
+    fontSize: 16,
+    color: AppColors.errorTextColor,
+    fontWeight: FontWeight.w500
+  );
+  static final menuTextStyle = GoogleFonts.dmSans(
+    fontSize: 16,
+    color: AppColors.darkTextColor,
+    fontWeight: FontWeight.w500
+  );
+
+  static final cardLabelStyle = GoogleFonts.dmSans(
+      fontSize: 12,
+      color: AppColors.disableLabelColor,
+      fontWeight: FontWeight.w500);
+
+  static final cardTextStyle = GoogleFonts.dmSans(
+      fontSize: 16,
+      color: AppColors.disableLabelColor,
+      fontWeight: FontWeight.w700);
 }

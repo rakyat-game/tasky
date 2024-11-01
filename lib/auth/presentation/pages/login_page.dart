@@ -41,19 +41,23 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: SizedBox(
                     width: double.infinity,
-                    child: SignButton(text: "Sign in", onTap: () {})),
+                    child: SignButton(text: Strings.signin, onTap: () {
+                      //TODO: Implement the sign in function
+                    })),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Didn’t have any account?",
+                    Strings.haveAcc,
                     style: FontStyles.secondaryTextStyle,
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // TODO: Implement the navigation to register
+                      },
                       child: Text(
-                        "Sign up here",
+                        Strings.signHere,
                         style: FontStyles.textButtonStyle,
                       ))
                 ],

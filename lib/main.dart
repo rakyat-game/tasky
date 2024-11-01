@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tasky/app/presentation/pages/profile_page.dart';
+import 'app/presentation/pages/details_page.dart';
+import 'app/presentation/widgets/date_card.dart';
+import 'auth/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +19,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
+      home: Scaffold(
         body: SafeArea(
-          child: ProfilePage(),
+          child: DetailsPage(),
         ),
       ),
     );

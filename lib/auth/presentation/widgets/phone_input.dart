@@ -8,12 +8,14 @@ class PhoneInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PhoneNumber initialValue = PhoneNumber(phoneNumber: "", dialCode: "+20", isoCode: "EG");
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.secondaryTextColor),
           borderRadius: BorderRadius.circular(8)),
       child: InternationalPhoneNumberInput(
+        initialValue: initialValue,
         keyboardType: TextInputType.number,
         inputBorder: WidgetStyles.borderStyle,
         onInputChanged: (PhoneNumber value) {},

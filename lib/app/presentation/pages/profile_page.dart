@@ -11,7 +11,9 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: AppIcons.backArrow),
+        leading: IconButton(onPressed: () {
+          //TODO: Created navigation for the button
+        }, icon: AppIcons.backArrow),
         title: Text(
           Strings.profile,
           style: FontStyles.textTitleStyle,
