@@ -20,6 +20,11 @@ class FontStyles {
       fontSize: 24,
       color: AppColors.darkTextColor,
       fontWeight: FontWeight.w700);
+  static final listTitleStyle = GoogleFonts.dmSans(
+      fontSize: 18,
+      color: AppColors.darkTextColor,
+      letterSpacing: 0.05,
+      fontWeight: FontWeight.w700);
   static final hintTextStyle = GoogleFonts.dmSans(
     fontSize: 16,
     color: AppColors.lightTextColor,
@@ -34,26 +39,26 @@ class FontStyles {
       fontSize: 14,
       color: AppColors.disableLabelColor,
       fontWeight: FontWeight.w500);
+  static final descriptionStyle = GoogleFonts.dmSans(
+      fontSize: 14,
+      color: AppColors.disableLabelColor,
+      fontWeight: FontWeight.w500);
   static final disableContentStyle = GoogleFonts.dmSans(
-    fontSize: 24,
-    color: AppColors.disableContentColor,
-    fontWeight: FontWeight.w700
-  );
+      fontSize: 24,
+      color: AppColors.disableContentColor,
+      fontWeight: FontWeight.w700);
   static final errorMenuTextStyle = GoogleFonts.dmSans(
-    fontSize: 16,
-    color: AppColors.errorTextColor,
-    fontWeight: FontWeight.w500
-  );
+      fontSize: 16,
+      color: AppColors.errorTextColor,
+      fontWeight: FontWeight.w500);
   static final menuTextStyle = GoogleFonts.dmSans(
-    fontSize: 16,
-    color: AppColors.darkTextColor,
-    fontWeight: FontWeight.w500
-  );
+      fontSize: 16,
+      color: AppColors.darkTextColor,
+      fontWeight: FontWeight.w500);
   static final menuTitleStyle = GoogleFonts.dmSans(
-    fontSize: 16,
-    color: AppColors.secondaryTextColor,
-    fontWeight: FontWeight.w700
-  );
+      fontSize: 16,
+      color: AppColors.secondaryTextColor,
+      fontWeight: FontWeight.w700);
 
   static final cardLabelStyle = GoogleFonts.dmSans(
       fontSize: 10,

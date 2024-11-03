@@ -4,6 +4,8 @@ import 'package:flutter_svg_icons/flutter_svg_icons.dart';
 import 'package:iconly/iconly.dart';
 import 'package:tasky/utils/utils.dart';
 
+import '../widgets/task_item.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -57,7 +59,7 @@ class _HomePageState extends State<HomePage> {
             inactiveTextColorList: [AppColors.secondaryTextColor],
             listOfChipIndicesCurrentlySelected: [0],
           ),
-
+          TaskItem()
         ]),
       )),
     );
