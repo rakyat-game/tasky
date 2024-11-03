@@ -56,7 +56,11 @@ class FontStyles {
       fontWeight: FontWeight.w500);
 
   static final cardTextStyle = GoogleFonts.dmSans(
-      fontSize: 16,
+      fontSize: 18,
       color: AppColors.darkTextColor,
+      fontWeight: FontWeight.w700);
+  static final cardTextSelectorStyle = GoogleFonts.dmSans(
+      fontSize: 18,
+      color: AppColors.inprogressTextColor,
       fontWeight: FontWeight.w700);
 }

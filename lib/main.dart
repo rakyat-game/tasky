@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/app/presentation/widgets/priority_card.dart';
 import 'app/presentation/pages/details_page.dart';
-import 'app/presentation/widgets/date_card.dart';
-import 'auth/presentation/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
