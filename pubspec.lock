@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  chip_list:
+    dependency: "direct main"
+    description:
+      name: chip_list
+      sha256: "9c6799907b95fdd5f8f17afa463e8c4ee40d3a0f87baeb323ec29f2671bd94ee"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   cli_util:
     dependency: transitive
     description:
@@ -190,6 +198,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
+  flutter_staggered_animations:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_animations
+      sha256: "81d3c816c9bb0dca9e8a5d5454610e21ffb068aedb2bde49d2f8d04f75538351"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   flutter_svg:
     dependency: "direct main"
     description:

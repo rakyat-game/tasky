@@ -49,6 +49,11 @@ class FontStyles {
     color: AppColors.darkTextColor,
     fontWeight: FontWeight.w500
   );
+  static final menuTitleStyle = GoogleFonts.dmSans(
+    fontSize: 16,
+    color: AppColors.secondaryTextColor,
+    fontWeight: FontWeight.w700
+  );
 
   static final cardLabelStyle = GoogleFonts.dmSans(
       fontSize: 10,

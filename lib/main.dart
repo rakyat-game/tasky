@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/app/presentation/pages/home_page.dart';
 import 'package:tasky/app/presentation/widgets/priority_card.dart';
 import 'app/presentation/pages/details_page.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: DetailsPage(),
+          child: HomePage(),
         ),
       ),
     );

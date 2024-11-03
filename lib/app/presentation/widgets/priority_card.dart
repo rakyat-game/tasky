@@ -11,24 +11,21 @@ class PriorityCard extends StatefulWidget {
 }
 
 class _PriorityCardState extends State<PriorityCard> {
-  List<DropdownMenuItem> items =
-      ['Low Priority', 'Medium Priority', 'High Priority']
-          .map((item) => DropdownMenuItem(
-              value: item,
-              child: Text(
-                item,
-              )))
-          .toList();
-  String stateText = "Low Priority";
+  List<DropdownMenuItem> items = Strings.priorities
+      .map((item) => DropdownMenuItem(
+          value: item,
+          child: Text(
+            item,
+          )))
+      .toList();
+  String stateText = Strings.priorities.first;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.inprogressBackgroundColor,
-        borderRadius: BorderRadius.circular(16)
-      ),
-      
+          color: AppColors.inprogressBackgroundColor,
+          borderRadius: BorderRadius.circular(16)),
       padding: EdgeInsets.only(left: 16, top: 2, bottom: 2, right: 4),
       child: DropdownButtonFormField(
         onTap: () {
