@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/auth/presentation/widgets/auth_widgets.dart';
-
+import 'package:tasky/routes.dart';
 import 'package:tasky/utils/utils.dart';
 
 class LoginPage extends StatelessWidget {
@@ -31,7 +31,8 @@ class LoginPage extends StatelessWidget {
                 child: PhoneInput(),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: PasswordInput(
                   controller: passwordController,
                   inputType: TextInputType.emailAddress,
@@ -41,9 +42,10 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: SizedBox(
                     width: double.infinity,
-                    child: SignButton(text: Strings.signin, onTap: () {
-                      //TODO: Implement the sign in function
-                    })),
+                    child: SignButton(
+                        text: Strings.signin,
+                        onTap: () => Navigator.of(context)
+                            .pushNamed(RouteGenerator.home))),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,9 +55,8 @@ class LoginPage extends StatelessWidget {
                     style: FontStyles.secondaryTextStyle,
                   ),
                   TextButton(
-                      onPressed: () {
-                        // TODO: Implement the navigation to register
-                      },
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed(RouteGenerator.register),
                       child: Text(
                         Strings.signHere,
                         style: FontStyles.textButtonStyle,

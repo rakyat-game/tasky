@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasky/app/presentation/widgets/priority_card.dart';
+import 'package:tasky/routes.dart';
 import 'package:tasky/utils/utils.dart';
 
 import '../../../auth/presentation/widgets/auth_widgets.dart';
@@ -17,9 +18,8 @@ class NewItemPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {
-              //TODO: Created navigation for the button
-            },
+            onPressed: () => Navigator.of(context)
+                .pushNamed(RouteGenerator.home),
             icon: AppIcons.backArrow),
         title: Text(
           Strings.addNewTask,

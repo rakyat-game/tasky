@@ -2,6 +2,7 @@ import 'package:chip_list/chip_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_icons/flutter_svg_icons.dart';
 import 'package:iconly/iconly.dart';
+import 'package:tasky/routes.dart';
 import 'package:tasky/utils/utils.dart';
 
 import '../widgets/task_item.dart';
@@ -20,19 +21,25 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: SizedBox(),
+        leadingWidth: 4,
         title: Text(
           "Logo",
           style: FontStyles.textTitleStyle,
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(RouteGenerator.profile),
               icon: SvgIcon(
                 icon: SvgIconData(Images.profile),
                 color: AppColors.darkTextColor,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(RouteGenerator.login);
+              },
               icon: Icon(
                 IconlyLight.logout,
                 color: AppColors.inprogressTextColor,
@@ -62,7 +69,6 @@ class _HomePageState extends State<HomePage> {
           TaskItem()
         ]),
       )),
-
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -76,13 +82,20 @@ class _HomePageState extends State<HomePage> {
               color: AppColors.inprogressTextColor,
             ),
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           FloatingActionButton(
             heroTag: 'add task',
-            onPressed: () {},
+            onPressed: () =>
+                Navigator.of(context).pushNamed(RouteGenerator.addItem),
             shape: CircleBorder(),
             backgroundColor: AppColors.inprogressTextColor,
-            child: Icon(Icons.add, color: Colors.white, size: 32,),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 32,
+            ),
           )
         ],
       ),

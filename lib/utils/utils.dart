@@ -1,9 +1,9 @@
 library;
 
-export 'fonts.dart';
 export 'colors.dart';
-export 'images.dart';
 export 'constants.dart';
+export 'fonts.dart';
+export 'icons.dart';
+export 'images.dart';
 export 'strings.dart';
 export 'widget_styles.dart';
-export 'icons.dart';

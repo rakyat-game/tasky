@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/app/presentation/widgets/priority_tag.dart';
 import 'package:tasky/app/presentation/widgets/progress_tag.dart';
+import 'package:tasky/routes.dart';
 import 'package:tasky/utils/utils.dart';
 
 class TaskItem extends StatelessWidget {
@@ -12,6 +13,8 @@ class TaskItem extends StatelessWidget {
         elevation: 0,
         color: Colors.transparent,
         child: ListTile(
+          onTap: () => Navigator.of(context)
+              .pushNamed(RouteGenerator.details),
           contentPadding: EdgeInsets.zero,
           leading: ClipOval(
             child: Image.network(

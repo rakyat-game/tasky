@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:tasky/utils/utils.dart';
 import 'package:tasky/auth/presentation/widgets/auth_widgets.dart';
+import 'package:tasky/routes.dart';
+import 'package:tasky/utils/utils.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -68,8 +68,10 @@ class RegisterPage extends StatelessWidget {
                     // password input widget
                     Padding(
                       padding: Constants.inputPadding,
-                      child: PasswordInput(controller: passwordController,
-                        inputType: TextInputType.visiblePassword,),
+                      child: PasswordInput(
+                        controller: passwordController,
+                        inputType: TextInputType.visiblePassword,
+                      ),
                     ),
                     // Sign up button
                     Padding(
@@ -77,7 +79,7 @@ class RegisterPage extends StatelessWidget {
                       child: SizedBox(
                           width: double.infinity,
                           child:
-                          SignButton(text: Strings.signup, onTap: () {})),
+                              SignButton(text: Strings.signup, onTap: () {})),
                     ),
                     // already have an account
                     Row(
@@ -88,7 +90,8 @@ class RegisterPage extends StatelessWidget {
                           style: FontStyles.secondaryTextStyle,
                         ),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () => Navigator.of(context)
+                                .pushNamed(RouteGenerator.login),
                             child: Text(
                               Strings.signin,
                               style: FontStyles.textButtonStyle,

@@ -29,7 +29,6 @@ class _PriorityCardState extends State<PriorityCard> {
       padding: EdgeInsets.only(left: 16, top: 2, bottom: 2, right: 4),
       child: DropdownButtonFormField(
         onTap: () {
-          print("Tapped");
         },
         items: items,
         style: FontStyles.cardTextSelectorStyle,
