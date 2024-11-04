@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tasky/app/presentation/pages/details_page.dart';
-import 'package:tasky/app/presentation/pages/home_page.dart';
-import 'package:tasky/app/presentation/pages/newitem_page.dart';
-import 'package:tasky/app/presentation/pages/profile_page.dart';
-import 'package:tasky/auth/presentation/pages/login_page.dart';
-import 'package:tasky/auth/presentation/pages/register_page.dart';
-import 'package:tasky/onboarding/onboard_page.dart';
+import 'package:tasky/features/app/presentation/pages/app_pages.dart';
+import 'package:tasky/features/auth/presentation/pages/auth_pages.dart';
+import 'package:tasky/features/onboarding/onboard_page.dart';
 
 class RouteGenerator {
   static const onBoarding = '/';
