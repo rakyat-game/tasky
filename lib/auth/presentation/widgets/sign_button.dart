@@ -18,7 +18,7 @@ class SignButton extends StatelessWidget {
       style: ButtonStyle(
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(12),
         )),
         backgroundColor: WidgetStateProperty.all(AppColors.inprogressTextColor),
       ),

@@ -62,6 +62,30 @@ class _HomePageState extends State<HomePage> {
           TaskItem()
         ]),
       )),
+
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'QR',
+            onPressed: () {},
+            shape: CircleBorder(),
+            mini: true,
+            child: Icon(
+              IconlyBold.scan,
+              color: AppColors.inprogressTextColor,
+            ),
+          ),
+          SizedBox(height: 8,),
+          FloatingActionButton(
+            heroTag: 'add task',
+            onPressed: () {},
+            shape: CircleBorder(),
+            backgroundColor: AppColors.inprogressTextColor,
+            child: Icon(Icons.add, color: Colors.white, size: 32,),
+          )
+        ],
+      ),
     );
   }
 }

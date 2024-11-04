@@ -9,5 +9,7 @@ class WidgetStyles {
       width: 1,
     ),
     borderRadius: BorderRadius.circular(10),
+  ).copyWith(
+    gapPadding: 0
   );
 }

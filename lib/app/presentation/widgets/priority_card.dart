@@ -35,6 +35,7 @@ class _PriorityCardState extends State<PriorityCard> {
         style: FontStyles.cardTextSelectorStyle,
         elevation: 0,
         decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
             enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
             icon: SvgIcon(
               icon: SvgIconData(Images.flag),

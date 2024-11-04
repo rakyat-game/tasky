@@ -26,4 +26,12 @@ class Strings {
   static const filters = ['ALL', 'Waiting', 'Inprogress', 'Finished'];
   static const priorities = ['Low Priority', 'Medium Priority', 'High Priority'];
   static const myTasks = "My Tasks";
+  static const addNewTask = "Add new task";
+  static const taskTitle = "Task title";
+  static const titleHere = "Enter title here...";
+  static const taskDesc = "Task Description";
+  static const descHere = "Enter description here...";
+  static const priority = "Priority";
+  static const dueDate = "Due date";
+  static const chooseDueDate = "choose due date...";
 }
