@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
+import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-import '../widgets/phone_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

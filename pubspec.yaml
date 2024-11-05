@@ -34,32 +34,31 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  iconly: ^1.0.1
-  cupertino_icons: ^1.0.8
   dio: ^5.7.0
   bloc: ^8.1.4
-  hydrated_bloc: ^9.1.5
-  flutter_bloc: ^8.1.6
-  animations: ^2.0.11
-  fade_shimmer: ^2.2.0
-  shared_preferences: ^2.3.2
-  path_provider: ^2.1.5
+  intl: ^0.19.0
+  iconly: ^1.0.1
   sqflite: ^2.4.0
-  google_fonts: ^6.2.1
   hexcolor: ^3.0.1
+  chip_list: ^3.0.0
+  animations: ^2.0.11
+  qr_flutter: ^4.1.0
   flutter_svg: ^2.0.11
+  google_fonts: ^6.2.1
   fluttertoast: ^8.2.8
+  flutter_bloc: ^8.1.6
+  fade_shimmer: ^2.2.0
+  hydrated_bloc: ^9.1.5
+  path_provider: ^2.1.5
+  cupertino_icons: ^1.0.8
+  json_annotation: ^4.9.0
+  flutter_svg_icons: ^0.0.1+4
+  shared_preferences: ^2.3.2
   flutter_launcher_icons: ^0.14.1
   intl_phone_number_input: ^0.7.4
   libphonenumber_plugin: ^0.3.3
-  flutter_svg_icons: ^0.0.1+4
-  intl: ^0.19.0
-  qr_flutter: ^4.1.0
   flutter_staggered_animations: ^1.1.1
-  chip_list: ^3.0.0
   data_connection_checker_nulls: ^0.0.2
-
-
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +70,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  json_serializable: ^6.8.0
+  build_runner: ^2.4.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

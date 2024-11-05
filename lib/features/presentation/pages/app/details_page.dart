@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/app/presentation/widgets/app_widgets.dart';
+import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});

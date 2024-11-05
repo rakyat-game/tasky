@@ -2,9 +2,9 @@ import 'package:chip_list/chip_list.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:tasky/core/core.dart';
+import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-import '../widgets/task_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

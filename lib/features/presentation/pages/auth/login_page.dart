@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/auth/presentation/widgets/auth_widgets.dart';
+import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
 class LoginPage extends StatelessWidget {

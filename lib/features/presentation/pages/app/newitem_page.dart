@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/app/presentation/widgets/app_widgets.dart';
+import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-import '../../../auth/presentation/widgets/auth_widgets.dart';
 
 class NewItemPage extends StatelessWidget {
   const NewItemPage({super.key});
