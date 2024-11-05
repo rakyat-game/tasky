@@ -4,7 +4,7 @@ import 'package:tasky/features/domain/entities/auth/register_response.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
 import 'package:tasky/features/domain/entities/logout/logout_response.dart';
 import 'package:tasky/features/domain/entities/user/user_data.dart';
-import 'package:tasky/features/domain/repositories/user_repositories.dart';
+import 'package:tasky/features/domain/repositories/auth_repositories.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthDataSource dataSource;
