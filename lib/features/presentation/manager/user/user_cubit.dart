@@ -12,7 +12,7 @@ class UserAuthCubit extends Cubit<UserState> {
     try {
       emit(UserLoading());
       final userTokens = await userAuthUseCase.login(phone, password);
-      print("Cubit: The user sure is logged in and his tokens are: $userTokens");
+      print("Cubit: The auth sure is logged in and his tokens are: $userTokens");
       if (userTokens != null) {
         emit(UserLoginSuccess(userTokens)); // Emit success with non-null tokens
       } else {

@@ -13,7 +13,7 @@ class AuthDataSource {
   AuthDataSource(this.dioClient);
 
   // replace this with the dio
-  Future<LoginResponse?> login(String phone, String password) async {
+  Future<LoginResponse> login(String phone, String password) async {
     try {
       final response = await dioClient.dio
           .post('/auth/login', data: {'phone': phone, 'password': password});
@@ -21,7 +21,7 @@ class AuthDataSource {
 
       if (response.statusCode == 201) {
         // success status code is 200 or 201
-        print("Now the user is logged in");
+        print("Now the auth is logged in");
         return LoginResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to login'); // Throw an exception here
@@ -37,7 +37,7 @@ class AuthDataSource {
           await dioClient.dio.post('/auth/login', data: user.toJson());
       print("This for debug the code to know if the data is here $response");
       if (response.statusCode == 201 || response.statusCode == 200) {
-        print("Now the user is registerd in");
+        print("Now the auth is registerd in");
         return RegisterResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to register'); // Throw an exception here
@@ -80,6 +80,22 @@ class AuthDataSource {
       print("Logout error: ${e.response?.data}");
       throw Exception(e.response?.data['message'] ?? 'Network error');
     }
+  }
 
+  Future<String> refreshToken(String refreshToken) async {
+    try {
+      final response = await dioClient.dio.get(ApiEndpoints.refreshToken,
+          queryParameters: {'token': refreshToken});
+      print("This for debug the code to know if the data is here $response");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        print("User successfully logged out.");
+        return response.data['access_token'];
+      } else {
+        throw Exception('Failed to logout');
+      }
+    } on DioException catch (e) {
+      print("Logout error: ${e.response?.data}");
+      throw Exception(e.response?.data['message'] ?? 'Network error');
+    }
   }
 }

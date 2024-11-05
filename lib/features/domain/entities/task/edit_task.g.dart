@@ -12,7 +12,7 @@ EditTask _$EditTaskFromJson(Map<String, dynamic> json) => EditTask(
       desc: json['desc'] as String?,
       priority: json['priority'] as String?,
       status: json['status'] as String?,
-      user: json['user'] as String?,
+      user: json['auth'] as String?,
     );
 
 Map<String, dynamic> _$EditTaskToJson(EditTask instance) => <String, dynamic>{
@@ -21,5 +21,5 @@ Map<String, dynamic> _$EditTaskToJson(EditTask instance) => <String, dynamic>{
       'desc': instance.desc,
       'priority': instance.priority,
       'status': instance.status,
-      'user': instance.user,
+      'auth': instance.user,
     };
