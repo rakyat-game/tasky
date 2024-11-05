@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
-import 'package:tasky/features/domain/use_cases/user_login.dart';
+import 'package:tasky/features/domain/use_cases/user_use_case.dart';
 import 'package:tasky/features/presentation/manager/user/user_states.dart';
 
 class UserAuthCubit extends Cubit<UserState> {

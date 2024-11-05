@@ -4,7 +4,7 @@ import 'package:tasky/features/domain/entities/auth/register_response.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
 
 class UserAuthUseCase {
-  final UserRepositoryImpl repository;
+  final AuthRepositoryImpl repository;
 
   UserAuthUseCase(this.repository);
 

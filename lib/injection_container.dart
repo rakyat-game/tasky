@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:tasky/features/data/data_sources/dio_client.dart';
-import 'package:tasky/features/data/data_sources/user/user_data_sources.dart';
+import 'package:tasky/features/data/data_sources/user/auth_data_source.dart';
 import 'package:tasky/features/data/repositories/user_repositories_impl.dart';
-import 'package:tasky/features/domain/use_cases/user_login.dart';
+import 'package:tasky/features/domain/use_cases/user_use_case.dart';
 import 'package:tasky/features/presentation/manager/user/user_states.dart';
 
 import 'features/presentation/manager/user/user_cubit.dart';
@@ -14,11 +14,11 @@ void setup() {
   getIt.registerLazySingleton<DioClient>(() => DioClient());
 
   // Data sources
-  getIt.registerLazySingleton<UserDataSource>(() => UserDataSource(getIt()));
+  getIt.registerLazySingleton<AuthDataSource>(() => AuthDataSource(getIt()));
 
   // Repositories
-  getIt.registerLazySingleton<UserRepositoryImpl>(
-      () => UserRepositoryImpl(getIt()));
+  getIt.registerLazySingleton<AuthRepositoryImpl>(
+      () => AuthRepositoryImpl(getIt()));
 
   // Use cases
   getIt.registerLazySingleton<UserAuthUseCase>(() => UserAuthUseCase(getIt()));
