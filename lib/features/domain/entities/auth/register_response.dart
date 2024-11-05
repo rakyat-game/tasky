@@ -5,7 +5,7 @@ part 'register_response.g.dart';
 @JsonSerializable()
 class RegisterResponse {
   @JsonKey(name: '_id')
-  final String? Id;
+  final String? id;
   final String? displayName;
   @JsonKey(name: 'access_token')
   final String? accessToken;
@@ -13,7 +13,7 @@ class RegisterResponse {
   final String? refreshToken;
 
   const RegisterResponse({
-    this.Id,
+    this.id,
     this.displayName,
     this.accessToken,
     this.refreshToken,

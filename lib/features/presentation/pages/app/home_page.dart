@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _filters = [];
 
   @override
   Widget build(BuildContext context) {

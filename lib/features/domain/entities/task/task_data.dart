@@ -5,7 +5,7 @@ part 'task_data.g.dart';
 @JsonSerializable()
 class TaskData {
   @JsonKey(name: '_id')
-  final String? Id;
+  final String? id;
   final String? image;
   final String? title;
   final String? desc;
@@ -18,7 +18,7 @@ class TaskData {
   final int? V;
 
   const TaskData({
-    this.Id,
+    this.id,
     this.image,
     this.title,
     this.desc,

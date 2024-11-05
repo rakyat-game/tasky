@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:tasky/core/core.dart';
 

@@ -12,6 +12,7 @@ class RegisterPage extends StatelessWidget {
     final passwordController = TextEditingController();
     final yearsOfExpController = TextEditingController();
     final addressController = TextEditingController();
+    final phoneController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -42,9 +43,11 @@ class RegisterPage extends StatelessWidget {
                             controller: nameController,
                             inputType: TextInputType.name)),
                     // phone input widget
-                    const Padding(
+                    Padding(
                       padding: Constants.inputPadding,
-                      child: PhoneInput(),
+                      child: PhoneInput(
+                        controller: phoneController,
+                      ),
                     ),
                     // years of exp input widget
                     Padding(

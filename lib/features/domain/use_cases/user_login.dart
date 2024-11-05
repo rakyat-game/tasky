@@ -1,15 +1,16 @@
+import 'package:tasky/features/data/repositories/user_repositories_impl.dart';
 import 'package:tasky/features/domain/entities/auth/login_response.dart';
 import 'package:tasky/features/domain/entities/auth/register_response.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
-import 'package:tasky/features/domain/repositories/user_repositories.dart';
 
 class UserAuthUseCase {
-  final UserRepository repository;
+  final UserRepositoryImpl repository;
 
   UserAuthUseCase(this.repository);
 
-  Future<LoginResponse> login(String email, String password) {
-    return repository.login(email, password);
+  Future<LoginResponse?> login(String phone, String password) {
+    print("Use Case: Just checking double for the login");
+    return repository.login(phone, password); // Ensure you're passing the correct parameters
   }
 
   Future<RegisterResponse> register(UserRegister userData) {

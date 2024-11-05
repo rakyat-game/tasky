@@ -5,14 +5,14 @@ part 'login_response.g.dart';
 @JsonSerializable()
 class LoginResponse {
   @JsonKey(name: '_id')
-  final String? Id;
+  final String? id;
   @JsonKey(name: 'access_token')
   final String? accessToken;
   @JsonKey(name: 'refresh_token')
   final String? refreshToken;
 
   const LoginResponse({
-    this.Id,
+    this.id,
     this.accessToken,
     this.refreshToken,
   });

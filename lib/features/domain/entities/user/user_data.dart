@@ -5,7 +5,7 @@ part 'user_data.g.dart';
 @JsonSerializable()
 class UserData {
   @JsonKey(name: '_id')
-  final String? Id;
+  final String? id;
   final String? displayName;
   final String? username;
   final List<String>? roles;
@@ -19,7 +19,7 @@ class UserData {
   final int? V;
 
   const UserData({
-    this.Id,
+    this.id,
     this.displayName,
     this.username,
     this.roles,

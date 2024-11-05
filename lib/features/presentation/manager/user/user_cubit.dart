@@ -3,18 +3,25 @@ import 'package:tasky/features/domain/entities/auth/user_register.dart';
 import 'package:tasky/features/domain/use_cases/user_login.dart';
 import 'package:tasky/features/presentation/manager/user/user_states.dart';
 
-class CounterCubit extends Cubit<UserState> {
+class UserAuthCubit extends Cubit<UserState> {
   final UserAuthUseCase userAuthUseCase;
 
-  CounterCubit(super.initialState, this.userAuthUseCase);
+  UserAuthCubit(super.initialState, {required this.userAuthUseCase});
 
-  Future<void> login(String email, String password) async {
+  Future<void> login({required String phone, required String password}) async {
     try {
       emit(UserLoading());
-      final userTokens = await userAuthUseCase.login(email, password);
-      emit(UserLoginSuccess(userTokens));
+      final userTokens = await userAuthUseCase.login(phone, password);
+      print("Cubit: The user sure is logged in and his tokens are: $userTokens");
+      if (userTokens != null) {
+        emit(UserLoginSuccess(userTokens)); // Emit success with non-null tokens
+      } else {
+        print("Cubit: wait what how");
+        emit(UserError("Login failed")); // Handle case where login is null
+      }
     } catch (e) {
-      emit(UserError("Login failed"));
+      print("Cubit: Sure he didn't insert the data correct");
+      emit(UserError("Login failed: ${e.toString()}")); // Include error message for debugging
     }
   }
 

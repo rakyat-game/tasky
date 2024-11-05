@@ -1,4 +1,4 @@
-import 'package:tasky/features/data/data_sources/user_data_sources.dart';
+import 'package:tasky/features/data/data_sources/user/user_data_sources.dart';
 import 'package:tasky/features/domain/entities/auth/login_response.dart';
 import 'package:tasky/features/domain/entities/auth/register_response.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
@@ -11,10 +11,10 @@ class UserRepositoryImpl implements UserRepository {
   UserRepositoryImpl(this.dataSource);
 
   @override
-  Future<LoginResponse> login(String email, String password) async {
+  Future<LoginResponse?> login(String email, String password) async {
     final userData = await dataSource.login(email, password);
-    final userTokens = LoginResponse.fromJson(userData);
-    return userTokens;
+    print("User repo impl: The user for sure is logged in");
+    return userData;
   }
 
   @override

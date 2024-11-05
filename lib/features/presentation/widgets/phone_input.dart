@@ -3,11 +3,14 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:tasky/core/core.dart';
 
 class PhoneInput extends StatelessWidget {
-  const PhoneInput({super.key});
+  final TextEditingController controller;
+
+  const PhoneInput({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    PhoneNumber initialValue = PhoneNumber(phoneNumber: "", dialCode: "+20", isoCode: "EG");
+    PhoneNumber initialValue =
+        PhoneNumber(phoneNumber: "", dialCode: "+20", isoCode: "EG");
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
@@ -17,7 +20,9 @@ class PhoneInput extends StatelessWidget {
         initialValue: initialValue,
         keyboardType: TextInputType.number,
         inputBorder: WidgetStyles.borderStyle,
-        onInputChanged: (PhoneNumber value) {},
+        onInputChanged: (PhoneNumber value) {
+          controller.text = value.phoneNumber!;
+        },
         formatInput: false,
         selectorConfig: const SelectorConfig(
             selectorType: PhoneInputSelectorType.DIALOG, trailingSpace: false),
