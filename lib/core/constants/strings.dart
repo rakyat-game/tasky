@@ -3,7 +3,7 @@ class Strings {
   static const registerPassword = "Password...";
   static const registerYearsOfExp = "Years of experience...";
   static const registerAddress = "Address...";
-  static const name= "NAME";
+  static const name = "NAME";
   static const phone = "PHONE";
   static const level = "LEVEL";
   static const location = "LOCATION";
@@ -18,13 +18,17 @@ class Strings {
   static const start = "Let's Start";
   static const boardingHeader = "Task Management &\nTo-Do List";
   static const boardingDesc = "This productive tool is designed to help\n"
-                                                "you better manage your task\n"
-                                                  "project-wise conveniently!";
+      "you better manage your task\n"
+      "project-wise conveniently!";
   static const profile = "Profile";
   static const taskDetails = "Task Details";
   static const states = ['Waiting', 'Inprogress', 'Finished'];
   static const filters = ['ALL', 'Waiting', 'Inprogress', 'Finished'];
-  static const priorities = ['Low Priority', 'Medium Priority', 'High Priority'];
+  static const priorities = [
+    'Low Priority',
+    'Medium Priority',
+    'High Priority'
+  ];
   static const myTasks = "My Tasks";
   static const addNewTask = "Add new task";
   static const taskTitle = "Task title";
@@ -34,4 +38,5 @@ class Strings {
   static const priority = "Priority";
   static const dueDate = "Due date";
   static const chooseDueDate = "choose due date...";
+  static const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjQ5ZmIyZWVmMGJmOTNkZDAwNzExYmEiLCJpYXQiOjE3MzYzNDkwMjksImV4cCI6MTczNjM0OTYyOX0.EqJo082izc1fAZclN5WQYLWvqSZ1-uFqC7Ibm2GA15c";
 }

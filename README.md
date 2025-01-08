@@ -22,7 +22,7 @@ To run this project, you need to ensure your environment is properly set up.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/tasky.git
+   git clone https://github.com/youssefmsaber/tasky.git
    ```
 2. Navigate into the project directory:
    ```bash

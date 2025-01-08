@@ -5,6 +5,8 @@ import 'package:tasky/features/data/repositories/auth_repositories_impl.dart';
 import 'package:tasky/features/data/repositories/todos_repositories_impl.dart';
 import 'package:tasky/features/domain/use_cases/auth_use_case.dart';
 import 'package:tasky/features/domain/use_cases/todos_use_case.dart';
+import 'package:tasky/features/presentation/manager/todos/home/home_cubit.dart';
+import 'package:tasky/features/presentation/manager/todos/home/todo_states.dart';
 import 'package:tasky/features/presentation/manager/user/auth_states.dart';
 
 import 'features/data/data_sources/todo/todos_data_source.dart';
@@ -35,4 +37,7 @@ void setup() {
         UserInitial(),
         userAuthUseCase: getIt(),
       ));
+  getIt.registerLazySingleton<HomeCubit>(
+    () => HomeCubit(HomeInitialState(), todosUseCase: getIt())
+  );
 }

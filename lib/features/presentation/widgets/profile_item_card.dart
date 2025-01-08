@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
 
 class ProfileItemCard extends StatelessWidget {
-  const ProfileItemCard({super.key});
+  String title;
+  String data;
+
+  ProfileItemCard({super.key, required this.title, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +19,14 @@ class ProfileItemCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                Strings.name.toUpperCase(),
+                title,
                 style: FontStyles.disableLabelStyle,
                 textAlign: TextAlign.start,
               ),
               const SizedBox(
                 height: 4,
               ),
-              Text("Youssef Mohamed", style: FontStyles.disableContentStyle)
+              Text(data, style: FontStyles.disableContentStyle)
               // Text(data)
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
 class TaskItem extends StatelessWidget {
+
   const TaskItem({super.key});
 
   @override
@@ -12,8 +13,7 @@ class TaskItem extends StatelessWidget {
         elevation: 0,
         color: Colors.transparent,
         child: ListTile(
-          onTap: () => Navigator.of(context)
-              .pushNamed(RouteGenerator.details),
+          onTap: () => Navigator.of(context).pushNamed(RouteGenerator.details),
           contentPadding: EdgeInsets.zero,
           leading: ClipOval(
             child: Image.network(
@@ -33,7 +33,9 @@ class TaskItem extends StatelessWidget {
                 style: FontStyles.listTitleStyle,
               ),
             ),
-            ProgressTag(state: "Inprogress",)
+            ProgressTag(
+              state: "Inprogress",
+            )
           ]),
           subtitle: Column(
             children: [

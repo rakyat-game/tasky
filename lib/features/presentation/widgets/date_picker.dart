@@ -37,11 +37,9 @@ class _DateCardState extends State<DatePicker> {
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime(2100));
-    if (pickedDate != null) {
-      setState(() {
-        var formattedDate = DateFormat("dd MMMM, yyyy").format(pickedDate);
-        _dateController.text = formattedDate;
-      });
-    }
+    setState(() {
+      var formattedDate = DateFormat("dd MMMM, yyyy").format(pickedDate!);
+      _dateController.text = formattedDate;
+    });
   }
 }

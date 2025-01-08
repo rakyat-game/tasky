@@ -6,11 +6,13 @@ import 'package:tasky/features/presentation/manager/user/auth_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
+// TODO: Use Cubit
+
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,89 +22,110 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(child: Image.asset(Images.art)),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            _buildPadding(
               child: Text(
                 "Login",
                 style: FontStyles.mainTextStyle,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-              child: PhoneInput(
-                controller: phoneController,
-              ),
+            _buildPadding(
+              child: PhoneInput(controller: phoneController),
             ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            _buildPadding(
               child: PasswordInput(
                 controller: passwordController,
-                inputType: TextInputType
-                    .visiblePassword, // Changed to visiblePassword for login
+                inputType: TextInputType.visiblePassword,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            _buildPadding(
               child: SizedBox(
                 width: double.infinity,
                 child: SignButton(
                   text: Strings.signin,
-                  onTap: () {
-                    final phone = phoneController.text;
-                    final password = passwordController.text;
-                    context
-                        .read<UserAuthCubit>()
-                        .login(phone: phone, password: password);
-                  },
+                  onTap: () => _onLoginButtonPressed(context),
                 ),
               ),
             ),
-            BlocBuilder<UserAuthCubit, UserState>(
-              builder: (BuildContext context, UserState state) {
-                if (state is UserLoading) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (state is UserLoginSuccess) {
-                  // Navigate after successful login
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    // Optionally, clear the text fields here if you want
-                    phoneController.clear();
-                    passwordController.clear();
-                    Navigator.of(context).pushNamed(RouteGenerator.home);
-                  });
-                  return Container(); // Returning an empty container after navigation
-                } else if (state is UserError) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      state.message,
-                      style: TextStyle(color: AppColors.errorTextColor),
-                    ),
-                  );
-                }
-                return Container(); // Default empty container
-              },
+            LoginStateBuilder(
+              phoneController: phoneController,
+              passwordController: passwordController,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  Strings.haveAcc,
-                  style: FontStyles.secondaryTextStyle,
-                ),
-                TextButton(
-                  onPressed: () =>
-                      Navigator.of(context).pushNamed(RouteGenerator.register),
-                  child: Text(
-                    Strings.signHere,
-                    style: FontStyles.textButtonStyle,
-                  ),
-                ),
-              ],
-            ),
+            _buildFooter(context),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildPadding({required Widget child}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      child: child,
+    );
+  }
+
+  void _onLoginButtonPressed(BuildContext context) {
+    final phone = phoneController.text;
+    final password = passwordController.text;
+            Navigator.of(context).pushNamed(RouteGenerator.home);
+    // context.read<UserAuthCubit>().login(phone: phone, password: password);
+  }
+
+  Widget _buildFooter(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          Strings.haveAcc,
+          style: FontStyles.secondaryTextStyle,
+        ),
+        TextButton(
+          onPressed: () =>
+              Navigator.of(context).pushNamed(RouteGenerator.register),
+          child: Text(
+            Strings.signHere,
+            style: FontStyles.textButtonStyle,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class LoginStateBuilder extends StatelessWidget {
+  final TextEditingController phoneController;
+  final TextEditingController passwordController;
+
+  const LoginStateBuilder({
+    super.key,
+    required this.phoneController,
+    required this.passwordController,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<UserAuthCubit, UserState>(
+      builder: (BuildContext context, UserState state) {
+        if (state is UserLoading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is UserLoginSuccess) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            phoneController.clear();
+            passwordController.clear();
+            Navigator.of(context).pushNamed(RouteGenerator.home);
+          });
+          return const SizedBox.shrink();
+        } else if (state is UserError) {
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              state.message,
+              style: TextStyle(color: AppColors.errorTextColor),
+            ),
+          );
+        }
+        return const SizedBox.shrink();
+      },
     );
   }
 }
