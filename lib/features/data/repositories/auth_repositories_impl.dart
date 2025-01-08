@@ -14,7 +14,6 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<LoginResponse> login(String email, String password) async {
     final userData = await dataSource.login(email, password);
-    print("User repo impl: The auth for sure is logged in");
     return userData;
   }
 

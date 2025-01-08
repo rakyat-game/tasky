@@ -5,8 +5,7 @@ import 'package:tasky/features/presentation/manager/todos/home/todo_states.dart'
 class HomeCubit extends Cubit<HomeState> {
   final TodosUseCase todosUseCase;
 
-  HomeCubit(HomeState initialState, {required this.todosUseCase})
-      : super(initialState);
+  HomeCubit(super.initialState, {required this.todosUseCase});
 
   Future<void> getTasks({required String accessToken}) async {
     try {

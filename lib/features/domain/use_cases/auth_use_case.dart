@@ -9,7 +9,6 @@ class UserAuthUseCase {
   UserAuthUseCase(this.repository);
 
   Future<LoginResponse?> login(String phone, String password) {
-    print("Use Case: Just checking double for the login");
     return repository.login(phone, password); // Ensure you're passing the correct parameters
   }
 

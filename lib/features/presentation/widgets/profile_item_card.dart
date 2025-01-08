@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
 
 class ProfileItemCard extends StatelessWidget {
-  String title;
-  String data;
+  final String title;
+  final String data;
 
-  ProfileItemCard({super.key, required this.title, required this.data});
+  const ProfileItemCard({super.key, required this.title, required this.data});
 
   @override
   Widget build(BuildContext context) {

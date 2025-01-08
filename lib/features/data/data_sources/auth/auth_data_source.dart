@@ -17,11 +17,9 @@ class AuthDataSource {
     try {
       final response = await dioClient.dio
           .post('/auth/login', data: {'phone': phone, 'password': password});
-      print("This for debug the code to know if the data is here $response");
 
       if (response.statusCode == 201) {
         // success status code is 200 or 201
-        print("Now the auth is logged in");
         return LoginResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to login'); // Throw an exception here
@@ -35,9 +33,7 @@ class AuthDataSource {
     try {
       final response =
           await dioClient.dio.post('/auth/login', data: user.toJson());
-      print("This for debug the code to know if the data is here $response");
       if (response.statusCode == 201 || response.statusCode == 200) {
-        print("Now the auth is registerd in");
         return RegisterResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to register'); // Throw an exception here
@@ -52,15 +48,12 @@ class AuthDataSource {
       final response = await dioClient.dio.post('/auth/logout',
           data: {'token': refreshToken},
           options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
-      print("This for debug the code to know if the data is here $response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("User successfully logged out.");
         return LogoutResponse.fromJson(response.data);
       } else {
         throw Exception('Failed to logout');
       }
     } on DioException catch (e) {
-      print("Logout error: ${e.response?.data}");
       throw Exception(e.response?.data['message'] ?? 'Network error');
     }
   }
@@ -69,15 +62,12 @@ class AuthDataSource {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.profile,
           options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
-      print("This for debug the code to know if the data is here $response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("User successfully logged out.");
         return UserData.fromJson(response.data);
       } else {
         throw Exception('Failed to logout');
       }
     } on DioException catch (e) {
-      print("Logout error: ${e.response?.data}");
       throw Exception(e.response?.data['message'] ?? 'Network error');
     }
   }
@@ -86,15 +76,12 @@ class AuthDataSource {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.refreshToken,
           queryParameters: {'token': refreshToken});
-      print("This for debug the code to know if the data is here $response");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("User successfully logged out.");
         return response.data['access_token'];
       } else {
         throw Exception('Failed to logout');
       }
     } on DioException catch (e) {
-      print("Logout error: ${e.response?.data}");
       throw Exception(e.response?.data['message'] ?? 'Network error');
     }
   }

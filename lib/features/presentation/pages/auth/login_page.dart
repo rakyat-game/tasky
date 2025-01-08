@@ -6,8 +6,6 @@ import 'package:tasky/features/presentation/manager/user/auth_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-// TODO: Use Cubit
-
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
