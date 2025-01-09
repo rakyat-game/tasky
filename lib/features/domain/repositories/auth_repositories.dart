@@ -9,5 +9,5 @@ abstract class AuthRepository {
   Future<RegisterResponse> register(UserRegister userRegister);
   Future<LogoutResponse> logout(String refreshToken, String accessToken);
   Future<UserData> profile(String accessToken);
-  Future<String> refreshToken(String refreshToken);
+  Future<String> refreshToken(String accessToken, String refreshToken );
 }

@@ -65,8 +65,7 @@ class LoginPage extends StatelessWidget {
   void _onLoginButtonPressed(BuildContext context) {
     final phone = phoneController.text;
     final password = passwordController.text;
-            Navigator.of(context).pushNamed(RouteGenerator.home);
-    // context.read<UserAuthCubit>().login(phone: phone, password: password);
+    context.read<UserAuthCubit>().login(phone: phone, password: password);
   }
 
   Widget _buildFooter(BuildContext context) {

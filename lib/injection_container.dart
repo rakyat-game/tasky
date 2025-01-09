@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:tasky/features/data/data_sources/auth/auth_data_source.dart';
 import 'package:tasky/features/data/data_sources/dio_client.dart';
+import 'package:tasky/features/data/data_sources/shared_preference.dart';
 import 'package:tasky/features/data/repositories/auth_repositories_impl.dart';
 import 'package:tasky/features/data/repositories/todos_repositories_impl.dart';
 import 'package:tasky/features/domain/use_cases/auth_use_case.dart';
@@ -14,7 +15,7 @@ import 'features/presentation/manager/user/auth_cubit.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+void setup(SharedPreferenceService sharedPrefService) {
   // Dio Client
   getIt.registerLazySingleton<DioClient>(() => DioClient());
 
@@ -40,4 +41,7 @@ void setup() {
   getIt.registerLazySingleton<HomeCubit>(
     () => HomeCubit(HomeInitialState(), todosUseCase: getIt())
   );
+
+  getIt.registerSingleton<SharedPreferenceService>(sharedPrefService);
+
 }

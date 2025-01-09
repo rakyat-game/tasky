@@ -16,7 +16,7 @@ class AuthDataSource {
   Future<LoginResponse> login(String phone, String password) async {
     try {
       final response = await dioClient.dio
-          .post('/auth/login', data: {'phone': phone, 'password': password});
+          .post(ApiEndpoints.login, data: {'phone': phone, 'password': password});
 
       if (response.statusCode == 201) {
         // success status code is 200 or 201
@@ -32,7 +32,7 @@ class AuthDataSource {
   Future<RegisterResponse> register(UserRegister user) async {
     try {
       final response =
-          await dioClient.dio.post('/auth/login', data: user.toJson());
+          await dioClient.dio.post(ApiEndpoints.register, data: user.toJson());
       if (response.statusCode == 201 || response.statusCode == 200) {
         return RegisterResponse.fromJson(response.data);
       } else {
@@ -45,7 +45,7 @@ class AuthDataSource {
 
   Future<LogoutResponse> logout(String refreshToken, String accessToken) async {
     try {
-      final response = await dioClient.dio.post('/auth/logout',
+      final response = await dioClient.dio.post(ApiEndpoints.logout,
           data: {'token': refreshToken},
           options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -72,10 +72,11 @@ class AuthDataSource {
     }
   }
 
-  Future<String> refreshToken(String refreshToken) async {
+  Future<String> refreshToken(String accessToken, String refreshToken) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.refreshToken,
-          queryParameters: {'token': refreshToken});
+          queryParameters: {'token': refreshToken},
+      options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
       if (response.statusCode == 200 || response.statusCode == 201) {
         return response.data['access_token'];
       } else {
