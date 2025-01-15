@@ -5,11 +5,20 @@ import 'package:tasky/features/domain/entities/task/add_task.dart';
 import 'package:tasky/features/domain/entities/task/edit_task.dart';
 import 'package:tasky/features/domain/entities/task/task_data.dart';
 
+/// A data source class for managing tasks using Dio for HTTP requests.
 class TodosDataSource {
   final DioClient dioClient;
 
+  /// Constructor for TodosDataSource.
+  ///
+  /// Takes a [DioClient] as a parameter.
   TodosDataSource(this.dioClient);
 
+  /// Adds a new task.
+  ///
+  /// Takes an [AddTask] object and an [accessToken] as parameters.
+  /// Returns a [TaskData] object if the task is added successfully.
+  /// Throws an [Exception] if the task addition fails.
   Future<TaskData> addTask(AddTask task, String accessToken) async {
     try {
       final response = await dioClient.dio.post(ApiEndpoints.todo,
@@ -25,6 +34,11 @@ class TodosDataSource {
     }
   }
 
+  /// Deletes a task.
+  ///
+  /// Takes a [taskId] and an [accessToken] as parameters.
+  /// Returns a [TaskData] object if the task is deleted successfully.
+  /// Throws an [Exception] if the task deletion fails.
   Future<TaskData> deleteTask(String taskId, String accessToken) async {
     try {
       final response = await dioClient.dio.delete(ApiEndpoints.todo + taskId,
@@ -39,6 +53,11 @@ class TodosDataSource {
     }
   }
 
+  /// Edits an existing task.
+  ///
+  /// Takes an [EditTask] object, a [taskId], and an [accessToken] as parameters.
+  /// Returns a [TaskData] object if the task is edited successfully.
+  /// Throws an [Exception] if the task editing fails.
   Future<TaskData> editTask(
       EditTask editedTask, String taskId, String accessToken) async {
     try {
@@ -55,6 +74,11 @@ class TodosDataSource {
     }
   }
 
+  /// Retrieves a list of tasks.
+  ///
+  /// Takes an [accessToken] as a parameter.
+  /// Returns a list of [TaskData] objects if the tasks are retrieved successfully.
+  /// Throws an [Exception] if the task retrieval fails.
   Future<List<TaskData>> getListOfTasks(String accessToken) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.list,
@@ -72,6 +96,11 @@ class TodosDataSource {
     }
   }
 
+  /// Retrieves a specific task.
+  ///
+  /// Takes a [taskId] and an [accessToken] as parameters.
+  /// Returns a [TaskData] object if the task is retrieved successfully.
+  /// Throws an [Exception] if the task retrieval fails.
   Future<TaskData> getTask(String taskId, String accessToken) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.todo + taskId,
@@ -86,6 +115,11 @@ class TodosDataSource {
     }
   }
 
+  /// Uploads an image.
+  ///
+  /// Takes an [accessToken] and an [image] as parameters.
+  /// Returns a [String] if the image is uploaded successfully.
+  /// Throws an [Exception] if the image upload fails.
   Future<String> uploadImage(String accessToken, String image) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.upload,

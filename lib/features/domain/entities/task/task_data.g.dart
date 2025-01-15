@@ -5,7 +5,7 @@ part of 'task_data.dart';
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
-
+/// Converts a JSON map to a `TaskData` instance.
 TaskData _$TaskDataFromJson(Map<String, dynamic> json) => TaskData(
       id: json['_id'] as String?,
       image: json['image'] as String?,
@@ -19,6 +19,7 @@ TaskData _$TaskDataFromJson(Map<String, dynamic> json) => TaskData(
       V: (json['__v'] as num?)?.toInt(),
     );
 
+/// Converts a `TaskData` instance to a JSON map.
 Map<String, dynamic> _$TaskDataToJson(TaskData instance) => <String, dynamic>{
       '_id': instance.id,
       'image': instance.image,

@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tasky/core/core.dart';
 
+/// A widget that displays a date picker input field.
 class DatePicker extends StatefulWidget {
+  /// Creates a [DatePicker] widget.
   const DatePicker({super.key});
 
   @override
   State<DatePicker> createState() => _DateCardState();
 }
 
+/// State class for [DatePicker] widget.
 class _DateCardState extends State<DatePicker> {
+  /// Controller for the date input field.
   final _dateController = TextEditingController();
 
   @override
@@ -31,6 +35,9 @@ class _DateCardState extends State<DatePicker> {
     );
   }
 
+  /// Displays a date picker dialog and updates the input field with the selected date.
+  ///
+  /// [context] is the build context of the widget.
   Future<void> _selectDate(context) async {
     DateTime? pickedDate = await showDatePicker(
         context: context,

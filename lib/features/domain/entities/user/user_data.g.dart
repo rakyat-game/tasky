@@ -6,6 +6,7 @@ part of 'user_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+/// Converts a JSON map to a `UserData` instance.
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: json['_id'] as String?,
       displayName: json['displayName'] as String?,
@@ -21,6 +22,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       V: (json['__v'] as num?)?.toInt(),
     );
 
+/// Converts a `UserData` instance to a JSON map.
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       '_id': instance.id,
       'displayName': instance.displayName,

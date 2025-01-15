@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:tasky/core/core.dart';
 
+/// A stateful widget that represents the state of a task.
 class TaskState extends StatefulWidget {
+  /// Creates a [TaskState] widget.
   const TaskState({super.key});
 
   @override
   State<TaskState> createState() => _TaskStateState();
 }
 
+/// The state for the [TaskState] widget.
 class _TaskStateState extends State<TaskState> {
+  /// A list of dropdown menu items representing the possible states.
   List<DropdownMenuItem> items = Strings.states
       .map((item) => DropdownMenuItem(
           value: item,
@@ -17,6 +21,8 @@ class _TaskStateState extends State<TaskState> {
             item,
           )))
       .toList();
+
+  /// The currently selected state text.
   String stateText = Strings.states.first;
 
   @override

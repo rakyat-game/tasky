@@ -2,10 +2,10 @@
 
 part of 'register_response.dart';
 
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
+/// \[JsonSerializable\] generated code for \[RegisterResponse\] class.
+/// This code handles the serialization and deserialization of the \[RegisterResponse\] object.
 
+/// Converts a JSON \[Map\] into a \[RegisterResponse\] instance.
 RegisterResponse _$RegisterResponseFromJson(Map<String, dynamic> json) =>
     RegisterResponse(
       id: json['_id'] as String?,
@@ -14,6 +14,7 @@ RegisterResponse _$RegisterResponseFromJson(Map<String, dynamic> json) =>
       refreshToken: json['refresh_token'] as String?,
     );
 
+/// Converts a \[RegisterResponse\] instance into a JSON \[Map\].
 Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
     <String, dynamic>{
       '_id': instance.id,

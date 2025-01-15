@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
 
+/// A widget that represents a description item with a text field.
 class DescItem extends StatefulWidget {
+  /// Controller for the text field.
   final TextEditingController controller;
 
+  /// Creates a [DescItem] widget.
+  ///
+  /// The [controller] parameter must not be null.
   const DescItem({
     super.key,
     required this.controller,
@@ -13,6 +18,7 @@ class DescItem extends StatefulWidget {
   State<DescItem> createState() => _TextInputState();
 }
 
+/// State class for [DescItem] widget.
 class _TextInputState extends State<DescItem> {
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,6 @@ class _TextInputState extends State<DescItem> {
           onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
           decoration: InputDecoration(
             hintText: Strings.descHere,
-            // Added labelText
             hintStyle: FontStyles.hintTextStyle,
             border: WidgetStyles.borderStyle,
             focusedBorder: WidgetStyles.borderStyle,
@@ -35,6 +40,6 @@ class _TextInputState extends State<DescItem> {
           expands: true,
           textAlign: TextAlign.start,
         ),
-        );
+    );
   }
 }

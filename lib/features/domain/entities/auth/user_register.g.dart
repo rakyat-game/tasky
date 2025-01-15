@@ -6,6 +6,7 @@ part of 'user_register.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+/// Converts a JSON map to a `UserRegister` instance.
 UserRegister _$UserRegisterFromJson(Map<String, dynamic> json) => UserRegister(
       phone: json['phone'] as String?,
       password: json['password'] as String?,
@@ -15,6 +16,7 @@ UserRegister _$UserRegisterFromJson(Map<String, dynamic> json) => UserRegister(
       level: json['level'] as String?,
     );
 
+/// Converts a `UserRegister` instance to a JSON map.
 Map<String, dynamic> _$UserRegisterToJson(UserRegister instance) =>
     <String, dynamic>{
       'phone': instance.phone,

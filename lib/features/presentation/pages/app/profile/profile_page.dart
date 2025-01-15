@@ -3,14 +3,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/domain/use_cases/user/ProfileUseCase.dart';
+import 'package:tasky/features/domain/use_cases/user/profile_use_case.dart';
 import 'package:tasky/features/presentation/pages/app/profile/profile/profile_cubit.dart';
 import 'package:tasky/features/presentation/pages/app/profile/profile/profile_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProfileCubit>().getProfile();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +40,8 @@ class ProfilePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: BlocConsumer<ProfileCubit, ProfileStates>(
-          listener: (context, state) {},
-          builder: (context, state) {
+          listener: (_, state) {},
+          builder: (_, state) {
             if (state is ProfileLoadingState) {
               return CircularProgressIndicator();
             } else if (state is GetProfileSuccessState) {

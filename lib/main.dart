@@ -13,6 +13,7 @@ import 'package:tasky/routes.dart';
 import 'features/presentation/pages/app/home/home/home_cubit.dart';
 import 'features/presentation/pages/auth/register/cubit/register_cubit.dart';
 
+/// The main entry point of the application.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -25,12 +26,18 @@ void main() async {
   runApp(MyApp(token: accessToken));
 }
 
+/// The root widget of the application.
 class MyApp extends StatelessWidget {
   final String? token;
 
+  /// Constructs a [MyApp] widget.
+  ///
+  /// The [token] parameter is optional and can be null.
   const MyApp({super.key, this.token});
 
-  // This widget is the root of your application.
+  /// Builds the widget tree for the application.
+  ///
+  /// This method sets up the [MultiBlocProvider] and [MaterialApp].
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -53,6 +60,10 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  /// Determines the initial route based on the presence of an access token.
+  ///
+  /// If the [token] is null, the initial route is set to the onboarding screen.
+  /// Otherwise, it is set to the home screen.
   String getInitialRoute(String? token) {
     if (token == null) {
       return RouteGenerator.onBoarding;

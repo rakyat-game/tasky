@@ -6,6 +6,7 @@ part of 'add_task.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+/// Converts a JSON map to an `AddTask` instance.
 AddTask _$AddTaskFromJson(Map<String, dynamic> json) => AddTask(
       image: json['image'] as String?,
       title: json['title'] as String?,
@@ -14,6 +15,7 @@ AddTask _$AddTaskFromJson(Map<String, dynamic> json) => AddTask(
       dueDate: json['dueDate'] as String?,
     );
 
+/// Converts an `AddTask` instance to a JSON map.
 Map<String, dynamic> _$AddTaskToJson(AddTask instance) => <String, dynamic>{
       'image': instance.image,
       'title': instance.title,

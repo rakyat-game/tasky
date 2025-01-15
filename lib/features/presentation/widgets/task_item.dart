@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
+import 'package:tasky/features/domain/entities/task/task_data.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
 class TaskItem extends StatelessWidget {
 
-  const TaskItem({super.key});
+  final TaskData taskData;
+  const TaskItem({super.key, required this.taskData});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class TaskItem extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
           leading: ClipOval(
             child: Image.network(
-              "https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg",
+              taskData.image!,
               height: 55,
               width: 55,
               fit: BoxFit.fill,
@@ -27,20 +29,20 @@ class TaskItem extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Expanded(
               child: Text(
-                "Grocery Shopping App",
+                taskData.title!,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: FontStyles.listTitleStyle,
               ),
             ),
             ProgressTag(
-              state: "Inprogress",
+              state: taskData.status!,
             )
           ]),
           subtitle: Column(
             children: [
               Text(
-                "BlThis application is designed for super shops. By using ah Blah Blah Blah Blah",
+                taskData.desc!,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: FontStyles.descriptionStyle,
@@ -51,9 +53,9 @@ class TaskItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  PriorityTag(priority: "Medium"),
+                  PriorityTag(priority: taskData.priority!),
                   Text(
-                    "30/12/2022",
+                    taskData.createdAt!,
                     style: FontStyles.disableLabelStyle,
                   )
                 ],

@@ -5,11 +5,11 @@ import 'package:tasky/features/data/data_sources/shared_preference.dart';
 import 'package:tasky/features/data/repositories/auth_repositories_impl.dart';
 import 'package:tasky/features/data/repositories/todos_repositories_impl.dart';
 import 'package:tasky/features/domain/use_cases/auth/login_use_case.dart';
-import 'package:tasky/features/domain/use_cases/task/post/AddTaskUseCase.dart';
-import 'package:tasky/features/domain/use_cases/task/post/DeleteTaskUseCase.dart';
-import 'package:tasky/features/domain/use_cases/task/post/EditTaskUseCase.dart';
-import 'package:tasky/features/domain/use_cases/task/post/UploadImageUseCase.dart';
-import 'package:tasky/features/domain/use_cases/user/RefreshTokenUseCase.dart';
+import 'package:tasky/features/domain/use_cases/task/post/add_task_use_case.dart';
+import 'package:tasky/features/domain/use_cases/task/post/delete_task_use_case.dart';
+import 'package:tasky/features/domain/use_cases/task/post/edit_task_use_case.dart';
+import 'package:tasky/features/domain/use_cases/task/post/upload_image_use_case.dart';
+import 'package:tasky/features/domain/use_cases/user/refresh_token_use_case.dart';
 import 'package:tasky/features/presentation/pages/app/profile/profile/profile_cubit.dart';
 import 'package:tasky/features/presentation/pages/auth/login/cubit/login_cubit.dart';
 import 'features/data/data_sources/todo/todos_data_source.dart';
@@ -17,13 +17,20 @@ import 'features/domain/use_cases/auth/register_use_case.dart';
 import 'features/domain/use_cases/task/get/get_task_use_case.dart';
 import 'features/domain/use_cases/task/get/get_tasks_use_case.dart';
 import 'features/domain/use_cases/user/logout_use_case.dart';
+import 'features/domain/use_cases/user/profile_use_case.dart';
 import 'features/presentation/pages/app/add_task/new_task/new_task_cubit.dart';
 import 'features/presentation/pages/app/details/details/details_cubit.dart';
 import 'features/presentation/pages/app/home/home/home_cubit.dart';
 import 'features/presentation/pages/auth/register/cubit/register_cubit.dart';
 
+/// Singleton instance of GetIt for dependency injection
 final getIt = GetIt.instance;
 
+/// Sets up the dependency injection container with the provided [SharedPreferenceService].
+///
+/// Registers all the necessary services, data sources, repositories, use cases, and cubits.
+///
+/// \param sharedPrefService The shared preference service to be registered as a singleton.
 void setup(SharedPreferenceService sharedPrefService) {
   // Dio Client
   getIt.registerLazySingleton<DioClient>(() => DioClient());
@@ -35,8 +42,8 @@ void setup(SharedPreferenceService sharedPrefService) {
   // Repositories
   getIt.registerLazySingleton<AuthRepositoryImpl>(
       () => AuthRepositoryImpl(getIt()));
-  getIt.registerLazySingleton<TodosRepositoriesImpl>(
-      () => TodosRepositoriesImpl(getIt()));
+  getIt.registerLazySingleton<TasksRepositoriesImpl>(
+      () => TasksRepositoriesImpl(getIt()));
 
   // Use cases
   // User
@@ -45,6 +52,7 @@ void setup(SharedPreferenceService sharedPrefService) {
 
   getIt.registerLazySingleton(() => LogoutUseCase(getIt()));
   getIt.registerLazySingleton(() => RefreshTokenUseCase(getIt()));
+  getIt.registerLazySingleton(() => ProfileUseCase(getIt()));
 
   // Tasks
   //   get
@@ -57,7 +65,9 @@ void setup(SharedPreferenceService sharedPrefService) {
   getIt.registerLazySingleton(() => UploadImageUseCase(getIt()));
   getIt.registerLazySingleton(() => DeleteTaskUseCase(getIt()));
 
-  // Auth Cubit
+  // ----
+  // Cubit
+  // Auth
   getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
   getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit(getIt()));
   getIt.registerLazySingleton<ProfileCubit>(() => ProfileCubit(getIt()));
@@ -71,5 +81,3 @@ void setup(SharedPreferenceService sharedPrefService) {
 
   getIt.registerSingleton<SharedPreferenceService>(sharedPrefService);
 }
-
-class UserAuthUseCase {}

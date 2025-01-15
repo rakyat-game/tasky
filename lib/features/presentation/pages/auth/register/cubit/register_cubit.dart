@@ -5,11 +5,19 @@ import 'package:tasky/features/domain/use_cases/auth/register_use_case.dart';
 import 'package:tasky/features/presentation/pages/auth/register/cubit/register_state.dart';
 import 'package:tasky/injection_container.dart';
 
+/// Cubit responsible for handling the registration process.
 class RegisterCubit extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
 
+  /// Constructor for RegisterCubit.
+  ///
+  /// Takes a [RegisterUseCase] as a parameter.
   RegisterCubit(this.registerUseCase) : super(RegisterInitial());
 
+  /// Registers a new user.
+  ///
+  /// Takes [UserRegister] as a required parameter.
+  /// Emits [RegisterLoading], [RegisterSuccess], or [RegisterError] states.
   Future<void> register({
     required UserRegister userData,
   }) async {

@@ -6,13 +6,19 @@ import 'package:tasky/features/domain/entities/auth/register_response.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
 import 'package:tasky/features/domain/entities/logout/logout_response.dart';
 import 'package:tasky/features/domain/entities/user/user_data.dart';
-
+/// A data source class for handling authentication-related API calls.
 class AuthDataSource {
   final DioClient dioClient;
 
+  /// Constructor for [AuthDataSource].
+  ///
+  /// Takes a [DioClient] instance as a parameter.
   AuthDataSource(this.dioClient);
 
-  // replace this with the dio
+  /// Logs in a user with the provided [phone] and [password].
+  ///
+  /// Returns a [LoginResponse] on success.
+  /// Throws an [Exception] if the login fails.
   Future<LoginResponse> login(String phone, String password) async {
     try {
       final response = await dioClient.dio
@@ -29,6 +35,10 @@ class AuthDataSource {
     }
   }
 
+  /// Registers a new user with the provided [user] data.
+  ///
+  /// Returns a [RegisterResponse] on success.
+  /// Throws an [Exception] if the registration fails.
   Future<RegisterResponse> register(UserRegister user) async {
     try {
       final response =
@@ -43,6 +53,10 @@ class AuthDataSource {
     }
   }
 
+  /// Logs out a user with the provided [refreshToken] and [accessToken].
+  ///
+  /// Returns a [LogoutResponse] on success.
+  /// Throws an [Exception] if the logout fails.
   Future<LogoutResponse> logout(String refreshToken, String accessToken) async {
     try {
       final response = await dioClient.dio.post(ApiEndpoints.logout,
@@ -58,6 +72,10 @@ class AuthDataSource {
     }
   }
 
+  /// Retrieves the profile of the user with the provided [accessToken].
+  ///
+  /// Returns a [UserData] on success.
+  /// Throws an [Exception] if the profile retrieval fails.
   Future<UserData> profile(String accessToken) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.profile,
@@ -72,6 +90,10 @@ class AuthDataSource {
     }
   }
 
+  /// Refreshes the access token using the provided [accessToken] and [refreshToken].
+  ///
+  /// Returns the new access token as a [String] on success.
+  /// Throws an [Exception] if the token refresh fails.
   Future<String> refreshToken(String accessToken, String refreshToken) async {
     try {
       final response = await dioClient.dio.get(ApiEndpoints.refreshToken,

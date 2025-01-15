@@ -3,9 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg_icons/flutter_svg_icons.dart';
 import 'package:tasky/core/core.dart';
 
+/// A widget that displays a phone number inside a card with a copy-to-clipboard functionality.
 class PhoneCard extends StatelessWidget {
+  /// The phone number to be displayed.
   final String phoneNumber;
 
+  /// Creates a [PhoneCard] widget.
+  ///
+  /// The [phoneNumber] parameter must not be null.
   const PhoneCard({super.key, required this.phoneNumber});
 
   @override
@@ -50,6 +55,10 @@ class PhoneCard extends StatelessWidget {
     );
   }
 
+  /// Copies the given [text] to the clipboard and shows a [SnackBar] notification.
+  ///
+  /// If the [text] is empty, no action is taken. If the copy operation fails,
+  /// a [SnackBar] with an error message is shown.
   void _copyToClipboard(BuildContext context, String text) async {
     if (text.isNotEmpty) {
       try {

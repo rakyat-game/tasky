@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tasky/core/core.dart';
 
+/// A widget that displays a date with a label and an icon.
 class DisplayDate extends StatelessWidget {
+  /// Creates a [DisplayDate] widget.
   const DisplayDate({super.key});
 
   @override

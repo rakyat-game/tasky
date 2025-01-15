@@ -1,12 +1,20 @@
+import 'package:tasky/features/data/repositories/todos_repositories_impl.dart';
 import 'package:tasky/features/domain/entities/task/task_data.dart';
-import 'package:tasky/features/domain/repositories/todos_repositories.dart';
 
+/// Use case for retrieving a task by its ID.
 class GetTaskUseCase {
-  final TasksRepositories tasksRepositories;
+  final TasksRepositoriesImpl tasksRepositories;
 
+  /// Constructor for `GetTaskUseCase`.
+  ///
+  /// Takes an instance of `TasksRepositoriesImpl`.
   GetTaskUseCase(this.tasksRepositories);
 
+  /// Retrieves a task by its ID.
+  ///
+  /// Takes a [taskId] and an [accessToken] as parameters.
+  /// Returns a [Future] that completes with a [TaskData] object.
   Future<TaskData> getTaskById(String taskId, String accessToken) async {
-   return await tasksRepositories.getTask(taskId, accessToken);
+    return await tasksRepositories.getTask(taskId, accessToken);
   }
 }

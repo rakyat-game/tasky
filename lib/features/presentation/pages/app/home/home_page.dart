@@ -85,7 +85,9 @@ class _HomePageState extends State<HomePage> {
                         ? const Center(child: CircularProgressIndicator())
                         : state is GetTasksSuccessState
                             ? ListView.separated(
-                                itemBuilder: (_, index) => TaskItem(),
+                                itemBuilder: (_, index) => TaskItem(
+                                  taskData: state.tasks[index],
+                                ),
                                 separatorBuilder: (_, index) =>
                                     const SizedBox(height: 8),
                                 itemCount: state.tasks.length,
