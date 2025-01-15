@@ -2,7 +2,7 @@ import 'package:tasky/features/domain/entities/task/add_task.dart';
 import 'package:tasky/features/domain/entities/task/edit_task.dart';
 import 'package:tasky/features/domain/entities/task/task_data.dart';
 
-abstract class TodosRepositories {
+abstract class TasksRepositories {
   Future<List<TaskData>> getListOfTasks(String accessToken);
 
   Future<TaskData> getTask(String taskId, String accessToken);

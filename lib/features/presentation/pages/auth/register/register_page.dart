@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/core.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
-import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_cubit.dart';
-import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
+import 'cubit/register_cubit.dart';
+import 'cubit/register_state.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -24,14 +24,14 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: BlocConsumer<UserAuthCubit, UserState>(
-          listener: (context, state) {
-            if (state is UserRegisterSuccess) {
+        child: BlocConsumer<RegisterCubit, RegisterState>(
+          listener: (BuildContext context, RegisterState state) {
+            if (state is RegisterSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text("Registration successful!")),
               );
               Navigator.of(context).pushNamed(RouteGenerator.home);
-            } else if (state is UserError) {
+            } else if (state is RegisterError) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.message)),
               );
@@ -52,7 +52,7 @@ class RegisterPage extends StatelessWidget {
                         children: [
                           _buildHeader(),
                           _buildInputFields(),
-                          if (state is UserLoading)
+                          if (state is RegisterLoading)
                             const Center(child: CircularProgressIndicator()),
                           _buildSignUpButton(context),
                           _buildFooter(context),
@@ -154,7 +154,8 @@ class RegisterPage extends StatelessWidget {
           text: Strings.signup,
           onTap: () {
             if (_formKey.currentState!.validate()) {
-              context.read<UserAuthCubit>().register(UserRegister(
+              context.read<RegisterCubit>().register(
+                      userData: UserRegister(
                     phone: phoneController.text,
                     password: passwordController.text,
                     displayName: nameController.text,

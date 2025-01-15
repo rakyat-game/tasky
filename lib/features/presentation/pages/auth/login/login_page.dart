@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_cubit.dart';
-import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_states.dart';
+import 'package:tasky/features/presentation/pages/auth/login/cubit/login_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
+
+import 'cubit/login_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -71,7 +72,7 @@ class LoginPage extends StatelessWidget {
   void _onLoginButtonPressed(BuildContext context) {
     final phone = phoneController.text;
     final password = passwordController.text;
-    context.read<UserAuthCubit>().login(phone: phone, password: password);
+    context.read<LoginCubit>().login(phone: phone, password: password);
   }
 
   Widget _buildFooter(BuildContext context) {
@@ -107,9 +108,9 @@ class LoginStateBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserAuthCubit, UserState>(
-      builder: (BuildContext context, UserState state) {
-        if (state is UserLoading) {
+    return BlocBuilder<LoginCubit, LoginState>(
+      builder: (BuildContext context, LoginState state) {
+        if (state is LoginLoading) {
           return AlertDialog(
             key: Key('Loading dialog'),
             content: CircularProgressIndicator(
@@ -118,14 +119,14 @@ class LoginStateBuilder extends StatelessWidget {
             backgroundColor: Colors.white,
             surfaceTintColor: Colors.white,
           );
-        } else if (state is UserLoginSuccess) {
+        } else if (state is LoginSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             phoneController.clear();
             passwordController.clear();
             Navigator.of(context).pushNamed(RouteGenerator.home);
           });
           return const SizedBox.shrink();
-        } else if (state is UserError) {
+        } else if (state is LoginError) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(

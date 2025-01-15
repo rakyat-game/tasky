@@ -7,7 +7,7 @@ import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
 import 'home/home_cubit.dart';
-import 'home/todo_states.dart';
+import 'home/home_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,14 +21,15 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     final cubit = context.read<HomeCubit>();
-    cubit.getTasks(accessToken: Strings.testToken); // Replace with actual token
+
+    cubit.getTasks(); // Replace with actual token
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
-        if (state is TaskErrorState) {
+        if (state is GetTasksErrorState) {
           // Handle error, e.g., show a snackbar
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),
@@ -51,7 +52,6 @@ class _HomePageState extends State<HomePage> {
               ),
               IconButton(
                 onPressed: () {
-                  
                   Navigator.of(context).pushNamed(RouteGenerator.login);
                 },
                 icon: AppIcons.logout,
@@ -73,9 +73,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ChipList(
                     listOfChipNames: Strings.filters,
-                    inactiveBgColorList: [
-                      AppColors.inprogressBackgroundColor
-                    ],
+                    inactiveBgColorList: [AppColors.inprogressBackgroundColor],
                     activeBgColorList: [AppColors.inprogressTextColor],
                     showCheckmark: false,
                     borderRadiiList: [50],
@@ -83,16 +81,16 @@ class _HomePageState extends State<HomePage> {
                     listOfChipIndicesCurrentlySelected: [0],
                   ),
                   Expanded(
-                    child: state is TaskLoadingState
+                    child: state is TasksLoadingState
                         ? const Center(child: CircularProgressIndicator())
-                        : state is TasksGetSuccessState
+                        : state is GetTasksSuccessState
                             ? ListView.separated(
                                 itemBuilder: (_, index) => TaskItem(),
                                 separatorBuilder: (_, index) =>
                                     const SizedBox(height: 8),
                                 itemCount: state.tasks.length,
                               )
-                            : state is TaskErrorState
+                            : state is GetTasksErrorState
                                 ? Center(
                                     child: Text(
                                       "Error: ${state.message}",

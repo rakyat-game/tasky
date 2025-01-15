@@ -4,7 +4,7 @@ import 'package:tasky/features/domain/entities/task/edit_task.dart';
 import 'package:tasky/features/domain/entities/task/task_data.dart';
 import 'package:tasky/features/domain/repositories/todos_repositories.dart';
 
-class TodosRepositoriesImpl implements TodosRepositories {
+class TodosRepositoriesImpl implements TasksRepositories {
   final TodosDataSource dataSource;
 
   TodosRepositoriesImpl(this.dataSource);
