@@ -9,7 +9,7 @@ part of 'user_data.dart';
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: json['_id'] as String?,
       displayName: json['displayName'] as String?,
-      username: json['username'] as String?,
+      phoneNumber: json['username'] as String?,
       roles:
           (json['roles'] as List<dynamic>?)?.map((e) => e as String).toList(),
       active: json['active'] as bool?,
@@ -24,7 +24,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       '_id': instance.id,
       'displayName': instance.displayName,
-      'username': instance.username,
+      'username': instance.phoneNumber,
       'roles': instance.roles,
       'active': instance.active,
       'experienceYears': instance.experienceYears,
