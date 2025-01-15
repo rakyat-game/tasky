@@ -1,4 +1,5 @@
-import '../../../../domain/entities/task/task_data.dart';
+
+import 'package:tasky/features/domain/entities/task/task_data.dart';
 
 abstract class ProfileStates {}
 

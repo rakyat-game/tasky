@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:tasky/core/core.dart';
-import 'package:tasky/features/presentation/manager/todos/home/home_cubit.dart';
-import 'package:tasky/features/presentation/manager/todos/home/todo_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
+
+import 'home/home_cubit.dart';
+import 'home/todo_states.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

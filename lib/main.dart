@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasky/features/data/data_sources/shared_preference.dart';
 import 'package:tasky/features/presentation/manager/bloc_observer.dart';
-import 'package:tasky/features/presentation/manager/todos/home/home_cubit.dart';
-import 'package:tasky/features/presentation/manager/user/auth_cubit.dart';
 import 'package:tasky/injection_container.dart';
 import 'package:tasky/routes.dart';
+
+import 'features/presentation/pages/app/home/home/home_cubit.dart';
+import 'features/presentation/pages/auth/auth_cubit/auth_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

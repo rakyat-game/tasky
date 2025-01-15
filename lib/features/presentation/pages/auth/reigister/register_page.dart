@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/core.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
+import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_cubit.dart';
+import 'package:tasky/features/presentation/pages/auth/auth_cubit/auth_states.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-import '../../manager/user/auth_cubit.dart';
-import '../../manager/user/auth_states.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});

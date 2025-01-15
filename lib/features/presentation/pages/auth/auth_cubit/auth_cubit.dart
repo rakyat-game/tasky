@@ -2,8 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:tasky/features/data/data_sources/shared_preference.dart';
 import 'package:tasky/features/domain/entities/auth/user_register.dart';
 import 'package:tasky/features/domain/use_cases/auth_use_case.dart';
-import 'package:tasky/features/presentation/manager/user/auth_states.dart';
 import 'package:tasky/injection_container.dart';
+
+import 'auth_states.dart';
 class UserAuthCubit extends Cubit<UserState> {
   final UserAuthUseCase userAuthUseCase;
 
