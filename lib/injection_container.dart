@@ -8,7 +8,6 @@ import 'package:tasky/features/domain/use_cases/auth_use_case.dart';
 import 'package:tasky/features/domain/use_cases/todos_use_case.dart';
 import 'package:tasky/features/presentation/manager/todos/home/home_cubit.dart';
 import 'package:tasky/features/presentation/manager/todos/home/todo_states.dart';
-import 'package:tasky/features/presentation/manager/user/auth_states.dart';
 
 import 'features/data/data_sources/todo/todos_data_source.dart';
 import 'features/presentation/manager/user/auth_cubit.dart';
@@ -34,10 +33,9 @@ void setup(SharedPreferenceService sharedPrefService) {
   getIt.registerLazySingleton(() => TodosUseCase(getIt()));
 
   // Cubit
-  getIt.registerLazySingleton<UserAuthCubit>(() => UserAuthCubit(
-        UserInitial(),
-        userAuthUseCase: getIt(),
-      ));
+  getIt.registerLazySingleton<UserAuthCubit>(
+        () => UserAuthCubit(userAuthUseCase: getIt()),
+  );
   getIt.registerLazySingleton<HomeCubit>(
     () => HomeCubit(HomeInitialState(), todosUseCase: getIt())
   );

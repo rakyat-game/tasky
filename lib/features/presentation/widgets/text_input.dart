@@ -10,7 +10,7 @@ class TextInput extends StatefulWidget {
       {super.key,
       required this.controller,
       required this.inputType,
-      required this.hint});
+      required this.hint,});
 
   @override
   State<TextInput> createState() => _TextInputState();
@@ -23,11 +23,10 @@ class _TextInputState extends State<TextInput> {
       controller: widget.controller,
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
-        hintText: widget.hint, // Added labelText
-        hintStyle: FontStyles.hintTextStyle,
-        border: WidgetStyles.borderStyle,
-        focusedBorder: WidgetStyles.borderStyle
-      ),
+          hintText: widget.hint, // Added labelText
+          hintStyle: FontStyles.hintTextStyle,
+          border: WidgetStyles.borderStyle,
+          focusedBorder: WidgetStyles.borderStyle),
       keyboardType: widget.inputType,
       maxLines: 1,
     );

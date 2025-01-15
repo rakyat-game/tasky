@@ -1,113 +1,190 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasky/core/core.dart';
+import 'package:tasky/features/domain/entities/auth/user_register.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
+import '../../manager/user/auth_cubit.dart';
+import '../../manager/user/auth_states.dart';
+
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+  RegisterPage({super.key});
+
+  final _formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final yearsOfExpController = TextEditingController();
+  final addressController = TextEditingController();
+  final phoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final nameController = TextEditingController();
-    final passwordController = TextEditingController();
-    final yearsOfExpController = TextEditingController();
-    final addressController = TextEditingController();
-    final phoneController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Image.asset(
-                Images.register,
+        child: BlocConsumer<UserAuthCubit, UserState>(
+          listener: (context, state) {
+            if (state is UserRegisterSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text("Registration successful!")),
+              );
+              Navigator.of(context).pushNamed(RouteGenerator.home);
+            } else if (state is UserError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.message)),
+              );
+            }
+          },
+          builder: (context, state) {
+            return SingleChildScrollView(
+              child: Stack(
+                children: [
+                  Image.asset(Images.register),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 230.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _buildHeader(),
+                          _buildInputFields(),
+                          if (state is UserLoading)
+                            const Center(child: CircularProgressIndicator()),
+                          _buildSignUpButton(context),
+                          _buildFooter(context),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 230.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        Strings.register,
-                        style: FontStyles.mainTextStyle,
-                      ),
-                    ),
-                    // name input widget
-                    Padding(
-                        padding: Constants.inputPadding,
-                        child: TextInput(
-                            hint: Strings.registerName,
-                            controller: nameController,
-                            inputType: TextInputType.name)),
-                    // phone input widget
-                    Padding(
-                      padding: Constants.inputPadding,
-                      child: PhoneInput(
-                        controller: phoneController,
-                      ),
-                    ),
-                    // years of exp input widget
-                    Padding(
-                        padding: Constants.inputPadding,
-                        child: TextInput(
-                            hint: Strings.registerYearsOfExp,
-                            controller: yearsOfExpController,
-                            inputType: TextInputType.name)),
-                    // Level of exp widget
-                    const Padding(
-                      padding: Constants.inputPadding,
-                      child: Dropdown(),
-                    ),
-                    // address input widget
-                    Padding(
-                        padding: Constants.inputPadding,
-                        child: TextInput(
-                            hint: Strings.registerAddress,
-                            controller: addressController,
-                            inputType: TextInputType.name)),
-                    // password input widget
-                    Padding(
-                      padding: Constants.inputPadding,
-                      child: PasswordInput(
-                        controller: passwordController,
-                        inputType: TextInputType.visiblePassword,
-                      ),
-                    ),
-                    // Sign up button
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: SizedBox(
-                          width: double.infinity,
-                          child:
-                              SignButton(text: Strings.signup, onTap: () {})),
-                    ),
-                    // already have an account
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          Strings.haveAcc,
-                          style: FontStyles.secondaryTextStyle,
-                        ),
-                        TextButton(
-                            onPressed: () => Navigator.of(context)
-                                .pushNamed(RouteGenerator.login),
-                            child: Text(
-                              Strings.signin,
-                              style: FontStyles.textButtonStyle,
-                            ))
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
+            );
+          },
         ),
       ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Text(
+        Strings.register,
+        style: FontStyles.mainTextStyle,
+      ),
+    );
+  }
+
+  Widget _buildInputFields() {
+    return Column(
+      children: [
+        Padding(
+          padding: Constants.inputPadding,
+          child: TextInput(
+            hint: Strings.registerName,
+            controller: nameController,
+            inputType: TextInputType.name,
+          ),
+        ),
+        Padding(
+          padding: Constants.inputPadding,
+          child: PhoneInput(controller: phoneController),
+        ),
+        Padding(
+          padding: Constants.inputPadding,
+          child: TextInput(
+            hint: Strings.registerYearsOfExp,
+            controller: yearsOfExpController,
+            inputType: TextInputType.number,
+          ),
+        ),
+        const Padding(
+          padding: Constants.inputPadding,
+          child: Dropdown(),
+        ),
+        Padding(
+          padding: Constants.inputPadding,
+          child: TextInput(
+            hint: Strings.registerAddress,
+            controller: addressController,
+            inputType: TextInputType.text,
+          ),
+        ),
+        Padding(
+          padding: Constants.inputPadding,
+          child: PasswordInput(
+              controller: passwordController,
+              inputType: TextInputType.visiblePassword,
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return 'Password is required';
+                }
+                return null;
+              }),
+        ),
+        Padding(
+          padding: Constants.inputPadding,
+          child: PasswordInput(
+              controller: confirmPasswordController,
+              inputType: TextInputType.visiblePassword,
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return 'Password is required';
+                } else if (value != passwordController.text) {
+                  return 'Passwords do not match';
+                } else {
+                  return null;
+                }
+              }),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSignUpButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: SizedBox(
+        width: double.infinity,
+        child: SignButton(
+          text: Strings.signup,
+          onTap: () {
+            if (_formKey.currentState!.validate()) {
+              context.read<UserAuthCubit>().register(UserRegister(
+                    phone: phoneController.text,
+                    password: passwordController.text,
+                    displayName: nameController.text,
+                    experienceYears: int.parse(yearsOfExpController.text),
+                    address: addressController.text,
+                  ));
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFooter(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          Strings.haveAcc,
+          style: FontStyles.secondaryTextStyle,
+        ),
+        TextButton(
+          onPressed: () =>
+              Navigator.of(context).pushNamed(RouteGenerator.login),
+          child: Text(
+            Strings.signin,
+            style: FontStyles.textButtonStyle,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -33,6 +33,12 @@ class LoginPage extends StatelessWidget {
               child: PasswordInput(
                 controller: passwordController,
                 inputType: TextInputType.visiblePassword,
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'Password is required';
+                  }
+                  return null;
+                },
               ),
             ),
             _buildPadding(
@@ -104,7 +110,14 @@ class LoginStateBuilder extends StatelessWidget {
     return BlocBuilder<UserAuthCubit, UserState>(
       builder: (BuildContext context, UserState state) {
         if (state is UserLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return AlertDialog(
+            key: Key('Loading dialog'),
+            content: CircularProgressIndicator(
+              color: AppColors.inprogressTextColor,
+            ),
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
+          );
         } else if (state is UserLoginSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             phoneController.clear();

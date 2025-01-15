@@ -4,12 +4,13 @@ import 'package:tasky/core/core.dart';
 class PasswordInput extends StatefulWidget {
   final TextInputType inputType;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   const PasswordInput({
     super.key,
-
     required this.controller,
     required this.inputType,
+    required this.validator,
   });
   @override
   State<PasswordInput> createState() => _PasswordInputState();
@@ -20,7 +21,7 @@ class _PasswordInputState extends State<PasswordInput> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: widget.controller,
       obscureText: !showPassword,
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
@@ -41,6 +42,7 @@ class _PasswordInputState extends State<PasswordInput> {
       ),
       keyboardType: widget.inputType,
       maxLines: 1,
+      validator: widget.validator,
     );
   }
 }

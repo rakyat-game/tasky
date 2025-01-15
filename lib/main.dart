@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (conetxt) => getIt<UserAuthCubit>()),
-        BlocProvider(create: (conetxt) => getIt<HomeCubit>()),
+        BlocProvider(create: (context) => getIt<UserAuthCubit>()),
+        BlocProvider(create: (context) => getIt<HomeCubit>()),
       ],
       child: MaterialApp(
         initialRoute: getInitialRoute(token),
