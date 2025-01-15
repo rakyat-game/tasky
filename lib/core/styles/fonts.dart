@@ -35,7 +35,7 @@ class FontStyles {
       fontWeight: FontWeight.w700,
       decoration: TextDecoration.underline);
   static final disableLabelStyle = GoogleFonts.dmSans(
-      fontSize: 14,
+      fontSize: 10,
       color: AppColors.disableLabelColor,
       fontWeight: FontWeight.w500);
   static final descriptionStyle = GoogleFonts.dmSans(
@@ -43,7 +43,7 @@ class FontStyles {
       color: AppColors.disableLabelColor,
       fontWeight: FontWeight.w500);
   static final disableContentStyle = GoogleFonts.dmSans(
-      fontSize: 24,
+      fontSize: 18,
       color: AppColors.disableContentColor,
       fontWeight: FontWeight.w700);
   static final errorMenuTextStyle = GoogleFonts.dmSans(

@@ -66,7 +66,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     ProfileItemCard(
                         title: "Years of experience".toUpperCase(),
-                        data: profile.experienceYears.toString()),
+                        data: profile.experienceYears == 1
+                            ? "1 Year"
+                            : "${profile.experienceYears} Years"),
                     SizedBox(
                       height: 16,
                     ),
