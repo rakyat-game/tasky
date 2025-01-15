@@ -7,7 +7,8 @@ class UserData {
   @JsonKey(name: '_id')
   final String? id;
   final String? displayName;
-  final String? username;
+  @JsonKey(name: 'username')
+  final String? phoneNumber;
   final List<String>? roles;
   final bool? active;
   final int? experienceYears;
@@ -21,7 +22,7 @@ class UserData {
   const UserData({
     this.id,
     this.displayName,
-    this.username,
+    this.phoneNumber,
     this.roles,
     this.active,
     this.experienceYears,
