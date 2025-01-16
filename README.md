@@ -1,5 +1,7 @@
 # Tasky
 
+<img src="src/project-design.png" alt="Project Design" height="500">
+
 A Flutter TODO app that allows users to store task data both in the cloud and locally. Tasky offers features such as task priority setting, task progress tracking, and supports Clean Architecture principles with GetIt for dependency injection.
 
 ## Features
