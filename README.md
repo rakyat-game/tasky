@@ -1,11 +1,11 @@
 # Tasky
 
-[![Flutter](https://img.shields.io/badge/Flutter-%20%3E%3D%203.5.4-blue)](https://flutter.dev/)
+<div align="center">
+  [![Flutter](https://img.shields.io/badge/Flutter-%20%3E%3D%203.5.4-blue)](https://flutter.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/youssefmsaber/tasky)
 [![Dependencies](https://img.shields.io/badge/Dependencies-Updated-blue)](https://pub.dev/packages)
-
-<div align="center">
+  
   <img src="src/project-design.png" alt="Project Design" height="350">
 </div>
 
