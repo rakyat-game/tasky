@@ -18,5 +18,11 @@ jobs:
         with:
           channel: stable
           flutter-version: 3.27.2
-      - run: flutter pub get
-      - run: flutter build apk
+      - uses: oberhauser-dev/flutter-release-action@v0
+        with:
+          token: ${{ github.token }}
+          dry-run: true
+          app-name: 'tasky' # Optional, takes the name from pubspec.yaml by default
+          app-version: ${{ github.ref_name }} # or set manually: 'v1.2.3-alpha.4', optional, takes the version from pubspec.yaml by default
+          tag: ${{ github.ref }}
+          build-type: 'debian'
