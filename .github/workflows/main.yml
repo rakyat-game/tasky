@@ -53,7 +53,6 @@ jobs:
           tag_name: ${{ steps.tag.outputs.tag }}
           files: |
             build/app/outputs/flutter-apk/app-release.apk
-            build/macos/Build/Products/Release/tasky.app
             build/macos/Build/Products/Release/tasky.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,6 +63,5 @@ jobs:
           name: flutter-apk
           path: |
             build/app/outputs/flutter-apk/app-release.apk
-            build/macos/Build/Products/Release/tasky.app
             build/macos/Build/Products/Release/tasky.dmg
   
