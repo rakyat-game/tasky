@@ -36,8 +36,8 @@ jobs:
 
       - name: Package macOS app into DMG
         run: |
-          create-dmg build/macos/Build/Products/Release/tasky.app \
-          build/macos/Build/Products/Release/tasky.dmg
+          create-dmg build/macos/Build/Products/Release/tasky.dmg \
+          build/macos/Build/Products/Release/tasky.app
 
       - name: Create Git tag
         id: tag
