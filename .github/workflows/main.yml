@@ -36,8 +36,8 @@ jobs:
 
       - name: Package macOS app into DMG
         run: |
-          create-dmg build/macos/Build/Products/Release/MyApp.app \
-          build/macos/Build/Products/Release/MyApp.dmg
+          create-dmg build/macos/Build/Products/Release/tasky.app \
+          build/macos/Build/Products/Release/tasky.dmg
 
       - name: Create Git tag
         id: tag
@@ -53,8 +53,8 @@ jobs:
           tag_name: ${{ steps.tag.outputs.tag }}
           files: |
             build/app/outputs/flutter-apk/app-release.apk
-            build/macos/Build/Products/Release/MyApp.app
-            build/macos/Build/Products/Release/MyApp.dmg
+            build/macos/Build/Products/Release/tasky.app
+            build/macos/Build/Products/Release/tasky.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -64,6 +64,6 @@ jobs:
           name: flutter-apk
           path: |
             build/app/outputs/flutter-apk/app-release.apk
-            build/macos/Build/Products/Release/MyApp.app
-            build/macos/Build/Products/Release/MyApp.dmg
+            build/macos/Build/Products/Release/tasky.app
+            build/macos/Build/Products/Release/tasky.dmg
   
