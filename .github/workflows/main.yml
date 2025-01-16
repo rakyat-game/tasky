@@ -36,8 +36,7 @@ jobs:
 
       - name: Package macOS app into DMG
         run: |
-          create-dmg --dmg-title "MyApp" \
-          build/macos/Build/Products/Release/MyApp.app \
+          create-dmg build/macos/Build/Products/Release/MyApp.app \
           build/macos/Build/Products/Release/MyApp.dmg
 
       - name: Create Git tag
