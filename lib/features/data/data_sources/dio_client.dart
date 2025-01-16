@@ -8,8 +8,8 @@ class DioClient {
   DioClient() {
     dio = Dio(BaseOptions(
         baseUrl: "https://todo.iraqsapp.com",
-        connectTimeout: Duration(seconds: 5),
-        receiveTimeout: Duration(seconds: 5),
+        connectTimeout: Duration(seconds: 10),
+        receiveTimeout: Duration(seconds: 10),
         headers: {
           'Content-Type': 'application/json',
         }));

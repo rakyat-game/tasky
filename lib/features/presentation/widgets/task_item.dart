@@ -5,8 +5,8 @@ import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
 class TaskItem extends StatelessWidget {
-
   final TaskData taskData;
+
   const TaskItem({super.key, required this.taskData});
 
   @override
@@ -15,15 +15,18 @@ class TaskItem extends StatelessWidget {
         elevation: 0,
         color: Colors.transparent,
         child: ListTile(
-          onTap: () => Navigator.of(context).pushNamed(RouteGenerator.details),
+          onTap: () => Navigator.of(context)
+              .pushNamed(RouteGenerator.details, arguments: taskData),
           contentPadding: EdgeInsets.zero,
           leading: ClipOval(
-            child: Image.network(
-              taskData.image!,
-              height: 55,
-              width: 55,
-              fit: BoxFit.fill,
-            ),
+            child: Image.network(taskData.image!,
+                height: 55,
+                width: 55,
+                fit: BoxFit.fill, errorBuilder: (context, error, stackTrace) {
+              return CircleAvatar(
+                backgroundColor: AppColors.secondaryTextColor,
+              );
+            }),
           ),
           title:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -40,6 +43,7 @@ class TaskItem extends StatelessWidget {
             )
           ]),
           subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 taskData.desc!,

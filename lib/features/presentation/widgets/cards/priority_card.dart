@@ -5,7 +5,9 @@ import 'package:tasky/core/core.dart';
 /// A widget that displays a card with a priority dropdown menu.
 class PriorityCard extends StatefulWidget {
   /// Creates a [PriorityCard] widget.
-  const PriorityCard({super.key});
+  final String priority;
+
+  const PriorityCard({super.key, required this.priority});
 
   @override
   State<PriorityCard> createState() => _PriorityCardState();
@@ -14,16 +16,23 @@ class PriorityCard extends StatefulWidget {
 /// The state for the [PriorityCard] widget.
 class _PriorityCardState extends State<PriorityCard> {
   /// The list of dropdown menu items created from the priorities.
-  List<DropdownMenuItem> items = Strings.priorities
-      .map((item) => DropdownMenuItem(
-          value: item,
-          child: Text(
-            item,
-          )))
-      .toList();
+  late List<DropdownMenuItem> items;
 
   /// The currently selected priority.
-  String stateText = Strings.priorities.first;
+  late String priorityText;
+
+  @override
+  void initState() {
+    super.initState();
+    items = Strings.priorities
+        .map((item) => DropdownMenuItem(
+        value: item,
+        child: Text(
+          item,
+        )))
+        .toList();
+    priorityText = widget.priority;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +60,10 @@ class _PriorityCardState extends State<PriorityCard> {
         selectedItemBuilder: (context) => items,
         iconSize: 24,
         isExpanded: true,
-        value: stateText,
-        onChanged: (asd) {
+        value: priorityText,
+        onChanged: (value) {
           setState(() {
-            stateText = asd.toString();
+            priorityText = value.toString();
           });
         },
         dropdownColor: AppColors.inprogressBackgroundColor,

@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
               ),
               IconButton(
                 onPressed: () {
+                  context.read<HomeCubit>().logout();
                   Navigator.of(context).pushNamed(RouteGenerator.login);
                 },
                 icon: AppIcons.logout,

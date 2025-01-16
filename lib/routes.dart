@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasky/features/domain/entities/task/task_data.dart';
 import 'package:tasky/features/presentation/pages/app/app_pages.dart';
 import 'package:tasky/features/presentation/pages/auth/auth_pages.dart';
 import 'package:tasky/features/presentation/pages/onboarding/onboard_page.dart';
@@ -32,7 +33,9 @@ class RouteGenerator {
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfilePage());
       case details:
-        return MaterialPageRoute(builder: (_) => const DetailsPage());
+        final taskData = settings.arguments as TaskData;
+        return MaterialPageRoute(
+            builder: (_) => DetailsPage(taskData: taskData));
       case addItem:
         return MaterialPageRoute(builder: (_) => const NewItemPage());
       default:

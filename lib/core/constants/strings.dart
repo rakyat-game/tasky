@@ -22,12 +22,12 @@ class Strings {
       "project-wise conveniently!";
   static const profile = "Profile";
   static const taskDetails = "Task Details";
-  static const states = ['Waiting', 'Inprogress', 'Finished'];
+  static const states = ['waiting', 'inProgress', 'finished'];
   static const filters = ['ALL', 'Waiting', 'Inprogress', 'Finished'];
   static const priorities = [
-    'Low Priority',
-    'Medium Priority',
-    'High Priority'
+    'low',
+    'medium',
+    'high'
   ];
   static const myTasks = "My Tasks";
   static const addNewTask = "Add new task";

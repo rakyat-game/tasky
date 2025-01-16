@@ -3,8 +3,10 @@ import 'package:tasky/core/core.dart';
 
 /// A widget that displays a date with a label and an icon.
 class DisplayDate extends StatelessWidget {
+  final String date;
+
   /// Creates a [DisplayDate] widget.
-  const DisplayDate({super.key});
+  const DisplayDate({super.key, required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class DisplayDate extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  "30 June, 2022",
+                  date,
                   style: FontStyles.cardTextStyle,
                 )
               ],

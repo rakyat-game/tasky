@@ -32,11 +32,12 @@ class HomeCubit extends Cubit<HomeState> {
   /// Logs out the user and updates the state accordingly.
   ///
   /// \param accessToken The access token of the user.
-  Future<void> logout(String accessToken) async {
+  Future<void> logout() async {
     try {
       emit(LogoutLoadingState());
       final accessToken = getIt<SharedPreferenceService>().getAccessToken();
       final refresh = getIt<SharedPreferenceService>().getRefreshToken();
+      await getIt<SharedPreferenceService>().clearTokens();
       final response = await logoutUseCase.logout(refresh!, accessToken!);
       emit(LogoutSuccessState(response));
     } catch (e) {

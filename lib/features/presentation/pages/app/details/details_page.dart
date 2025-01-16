@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:tasky/core/core.dart';
+import 'package:tasky/features/domain/entities/task/task_data.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
+  final TaskData taskData;
+
+  const DetailsPage({super.key, required this.taskData});
 
   @override
   Widget build(BuildContext context) {
@@ -46,49 +49,37 @@ class DetailsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                Images.art,
-                height: 250,
-                width: double.infinity,
-              ),
-              SizedBox(
-                height: 16,
-              ),
+              Image.network(taskData.image!,
+                  height: 250,
+                  width: double.infinity,
+                  fit: BoxFit.fill, errorBuilder: (context, error, stackTrace) {
+                return CircleAvatar(
+                  backgroundColor: AppColors.secondaryTextColor,
+                );
+              }),
+              SizedBox(height: 16,),
               Text(
-                "Grocery Shopping App",
+                taskData.title!,
                 style: FontStyles.textTitleStyle,
                 textAlign: TextAlign.start,
               ),
-              SizedBox(
-                height: 8,
-              ),
+              SizedBox(height: 8,),
               Text(
-                """This application is designed for super shops. By using 
-          this application they can enlist all their products in one 
-          place and can deliver. Customers will get a one-stop 
-          solution for their daily shopping.""",
+                taskData.desc!,
                 style: FontStyles.secondaryTextStyle,
               ),
-              SizedBox(
-                height: 16,
-              ),
-              DisplayDate(),
-              SizedBox(
-                height: 16,
-              ),
-              TaskState(),
-              SizedBox(
-                height: 16,
-              ),
-              PriorityCard(),
-              SizedBox(
-                height: 16,
-              ),
+              SizedBox(height: 16,),
+              DisplayDate(date: taskData.createdAt!),
+              SizedBox(height: 16,),
+              TaskState(state: taskData.status!,),
+              SizedBox(height: 16,),
+              PriorityCard(priority: taskData.priority!),
+              SizedBox(height: 16,),
               SizedBox(
                 width: double.infinity,
                 child: QrImageView(
                   padding: EdgeInsets.all(32),
-                  data: "6640dc5e1971e94d3c98d84d",
+                  data: taskData.id!,
                   version: QrVersions.auto,
                 ),
               )

@@ -4,7 +4,6 @@ import 'package:tasky/core/core.dart';
 import 'package:tasky/features/presentation/widgets/app_widgets.dart';
 import 'package:tasky/routes.dart';
 
-
 class NewItemPage extends StatelessWidget {
   const NewItemPage({super.key});
 
@@ -61,7 +60,7 @@ class NewItemPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(Strings.priority, style: FontStyles.hintTextStyle),
               ),
-              PriorityCard(),
+              PriorityCard(priority: "low"),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(Strings.dueDate, style: FontStyles.hintTextStyle),
