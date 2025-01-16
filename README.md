@@ -61,7 +61,7 @@ To run this project, ensure your environment is properly set up.
 - **[bloc](https://pub.dev/packages/bloc)**: `^8.1.4` - Business Logic Component (BLoC) for state management ![bloc](https://img.shields.io/badge/BLoC-pattern-blue)
 - **[flutter_bloc](https://pub.dev/packages/flutter_bloc)**: `^8.1.6` - Flutter integration for BLoC pattern ![flutter_bloc](https://img.shields.io/badge/Flutter%20BLoC-blue)
 - **[intl](https://pub.dev/packages/intl)**: `^0.19.0` - Internationalization support for formatting dates, numbers, etc. ![intl](https://img.shields.io/badge/Intl-0.19-blue)
-- **[sqflite](https://pub.dev/packages/sqflite)**: `^2.4.0` - SQLite plugin for local database storage ![sqflite](https://img.shields.io/badge/SQLite-local-database-orange)
+- **[sqflite](https://pub.dev/packages/sqflite)**: `^2.4.0` - SQLite plugin for local database storage![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 - **[shared_preferences](https://pub.dev/packages/shared_preferences)**: `^2.3.2` - Local key-value storage for storing simple data ![shared_preferences](https://img.shields.io/badge/Storage-Shared%20Preferences-green)
 
 ### Utilities
