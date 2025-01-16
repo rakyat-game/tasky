@@ -1,10 +1,12 @@
-name: Flutter-Android
+name: Build and Release APK
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
   build:
@@ -13,16 +15,36 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
+        
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           flutter-version: 3.27.2
-      - uses: oberhauser-dev/flutter-release-action@v0
+          
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v3
         with:
-          token: ${{ github.token }}
-          dry-run: true
-          app-name: 'tasky' # Optional, takes the name from pubspec.yaml by default
-          app-version: ${{ github.ref_name }} # or set manually: 'v1.2.3-alpha.4', optional, takes the version from pubspec.yaml by default
-          tag: ${{ github.ref }}
-          build-type: 'apk'
+          name: flutter-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+  
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+  
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
